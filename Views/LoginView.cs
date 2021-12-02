@@ -28,5 +28,44 @@ namespace MKP_ver1
         {
             Application.Exit();
         }
+
+        private void UsernameBox_Enter(object sender, EventArgs e)
+        {
+            if (usernameBox.Text == "Имя пользователя")
+            {
+                usernameBox.Clear();
+            }
+        }
+
+        private void UsernameBox_Leave(object sender, EventArgs e)
+        {
+            if (usernameBox.Text == string.Empty)
+            {
+                usernameBox.Text = "Имя пользователя";
+            }
+        }
+
+        private void PasswordBox_Enter(object sender, EventArgs e)
+        {
+            if (passwordBox.Text == "Password")
+            {
+                passwordBox.Clear();
+            }
+        }
+
+        private void PasswordBox_Leave(object sender, EventArgs e)
+        {
+            if (passwordBox.Text == string.Empty)
+            {
+                passwordBox.Text = "Password";
+            }
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            MainWindowView mainWindowView = new MainWindowView();
+            mainWindowView.Show();
+            this.Hide();
+        }
     }
 }

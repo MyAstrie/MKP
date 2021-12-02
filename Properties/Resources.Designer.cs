@@ -63,6 +63,16 @@ namespace MKP_ver1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back {
+            get {
+                object obj = ResourceManager.GetObject("back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ExitButton {
             get {
                 object obj = ResourceManager.GetObject("ExitButton", resourceCulture);
@@ -97,6 +107,26 @@ namespace MKP_ver1.Properties {
         internal static System.Drawing.Bitmap secure {
             get {
                 object obj = ResourceManager.GetObject("secure", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TopGradien {
+            get {
+                object obj = ResourceManager.GetObject("TopGradien", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TopGradien1 {
+            get {
+                object obj = ResourceManager.GetObject("TopGradien1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

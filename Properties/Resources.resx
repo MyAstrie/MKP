@@ -121,19 +121,28 @@
   <data name="secure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\secure.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="New Sfu Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\New Sfu Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kisspng-building-stock-photography-royalty-free-clip-art-safe-construction-villain-5a8cbf8c662616.2368136015191735164184" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\kisspng-building-stock-photography-royalty-free-clip-art-safe-construction-villain-5a8cbf8c662616.2368136015191735164184.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WelderPhoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\WelderPhoto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ExitButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\ExitButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="New Sfu Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\New Sfu Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TopGradien1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\TopGradien.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TopGradien" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\TopGradien.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kisspng-building-stock-photography-royalty-free-clip-art-safe-construction-villain-5a8cbf8c662616.2368136015191735164184" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\kisspng-building-stock-photography-royalty-free-clip-art-safe-construction-villain-5a8cbf8c662616.2368136015191735164184.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ExitButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ExitButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

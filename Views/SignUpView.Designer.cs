@@ -35,32 +35,32 @@ namespace MKP_ver1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpView));
-            this.Register = new System.Windows.Forms.Label();
+            this.registerTxt = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.UsernameBox = new System.Windows.Forms.TextBox();
+            this.nameBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LoginTxt = new System.Windows.Forms.TextBox();
+            this.loginBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.PassTxt = new System.Windows.Forms.TextBox();
+            this.passBox = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.RepeatPassTxt = new System.Windows.Forms.TextBox();
-            this.OnSignUpButton = new System.Windows.Forms.Button();
-            this.ReturnButton = new System.Windows.Forms.Button();
+            this.repeatPassBox = new System.Windows.Forms.TextBox();
+            this.onSignUpButton = new System.Windows.Forms.Button();
+            this.returnButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.LastName = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.Iam = new System.Windows.Forms.Label();
-            this.CloseButton = new System.Windows.Forms.PictureBox();
+            this.lastNameBox = new System.Windows.Forms.TextBox();
+            this.whoUserContext = new System.Windows.Forms.ComboBox();
+            this.iAmTxt = new System.Windows.Forms.Label();
+            this.closeButton = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Register
+            // registerTxt
             // 
-            resources.ApplyResources(this.Register, "Register");
-            this.Register.ForeColor = System.Drawing.Color.White;
-            this.Register.Name = "Register";
+            resources.ApplyResources(this.registerTxt, "registerTxt");
+            this.registerTxt.ForeColor = System.Drawing.Color.White;
+            this.registerTxt.Name = "registerTxt";
             // 
             // panel2
             // 
@@ -68,18 +68,18 @@ namespace MKP_ver1
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
-            // UsernameBox
+            // nameBox
             // 
-            this.UsernameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.UsernameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UsernameBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            resources.ApplyResources(this.UsernameBox, "UsernameBox");
-            this.UsernameBox.ForeColor = System.Drawing.Color.White;
-            this.UsernameBox.Name = "UsernameBox";
-            this.UsernameBox.Tag = "";
-            this.UsernameBox.Enter += new System.EventHandler(this.UsernameBox_Enter);
-            this.UsernameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UsernameBox_KeyPress);
-            this.UsernameBox.Leave += new System.EventHandler(this.UsernameBox_Leave);
+            this.nameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.nameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nameBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            resources.ApplyResources(this.nameBox, "nameBox");
+            this.nameBox.ForeColor = System.Drawing.Color.White;
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Tag = "";
+            this.nameBox.Enter += new System.EventHandler(this.UsernameBox_Enter);
+            this.nameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UsernameBox_KeyPress);
+            this.nameBox.Leave += new System.EventHandler(this.UsernameBox_Leave);
             // 
             // panel1
             // 
@@ -87,18 +87,18 @@ namespace MKP_ver1
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
-            // LoginTxt
+            // loginBox
             // 
-            this.LoginTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.LoginTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LoginTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            resources.ApplyResources(this.LoginTxt, "LoginTxt");
-            this.LoginTxt.ForeColor = System.Drawing.Color.White;
-            this.LoginTxt.Name = "LoginTxt";
-            this.LoginTxt.Tag = "";
-            this.LoginTxt.Enter += new System.EventHandler(this.LoginTxt_Enter);
-            this.LoginTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LoginTxt_KeyPress);
-            this.LoginTxt.Leave += new System.EventHandler(this.LoginTxt_Leave);
+            this.loginBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.loginBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.loginBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            resources.ApplyResources(this.loginBox, "loginBox");
+            this.loginBox.ForeColor = System.Drawing.Color.White;
+            this.loginBox.Name = "loginBox";
+            this.loginBox.Tag = "";
+            this.loginBox.Enter += new System.EventHandler(this.LoginTxt_Enter);
+            this.loginBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LoginTxt_KeyPress);
+            this.loginBox.Leave += new System.EventHandler(this.LoginTxt_Leave);
             // 
             // panel3
             // 
@@ -106,18 +106,18 @@ namespace MKP_ver1
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
-            // PassTxt
+            // passBox
             // 
-            this.PassTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.PassTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PassTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            resources.ApplyResources(this.PassTxt, "PassTxt");
-            this.PassTxt.ForeColor = System.Drawing.Color.White;
-            this.PassTxt.Name = "PassTxt";
-            this.PassTxt.Tag = "";
-            this.PassTxt.Enter += new System.EventHandler(this.PassTxt_Enter);
-            this.PassTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PassTxt_KeyPress);
-            this.PassTxt.Leave += new System.EventHandler(this.PassTxt_Leave);
+            this.passBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.passBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            resources.ApplyResources(this.passBox, "passBox");
+            this.passBox.ForeColor = System.Drawing.Color.White;
+            this.passBox.Name = "passBox";
+            this.passBox.Tag = "";
+            this.passBox.Enter += new System.EventHandler(this.PassTxt_Enter);
+            this.passBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PassTxt_KeyPress);
+            this.passBox.Leave += new System.EventHandler(this.PassTxt_Leave);
             // 
             // panel5
             // 
@@ -125,44 +125,44 @@ namespace MKP_ver1
             resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
             // 
-            // RepeatPassTxt
+            // repeatPassBox
             // 
-            this.RepeatPassTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.RepeatPassTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RepeatPassTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            resources.ApplyResources(this.RepeatPassTxt, "RepeatPassTxt");
-            this.RepeatPassTxt.ForeColor = System.Drawing.Color.White;
-            this.RepeatPassTxt.Name = "RepeatPassTxt";
-            this.RepeatPassTxt.Tag = "";
-            this.RepeatPassTxt.Enter += new System.EventHandler(this.RepeatPassTxt_Enter);
-            this.RepeatPassTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RepeatPassTxt_KeyPress);
-            this.RepeatPassTxt.Leave += new System.EventHandler(this.RepeatPassTxt_Leave);
+            this.repeatPassBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.repeatPassBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.repeatPassBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            resources.ApplyResources(this.repeatPassBox, "repeatPassBox");
+            this.repeatPassBox.ForeColor = System.Drawing.Color.White;
+            this.repeatPassBox.Name = "repeatPassBox";
+            this.repeatPassBox.Tag = "";
+            this.repeatPassBox.Enter += new System.EventHandler(this.RepeatPassTxt_Enter);
+            this.repeatPassBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RepeatPassTxt_KeyPress);
+            this.repeatPassBox.Leave += new System.EventHandler(this.RepeatPassTxt_Leave);
             // 
-            // OnSignUpButton
+            // onSignUpButton
             // 
-            this.OnSignUpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(78)))), ((int)(((byte)(244)))));
-            this.OnSignUpButton.Cursor = System.Windows.Forms.Cursors.Default;
-            this.OnSignUpButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.OnSignUpButton.FlatAppearance.BorderSize = 0;
-            this.OnSignUpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlanchedAlmond;
-            resources.ApplyResources(this.OnSignUpButton, "OnSignUpButton");
-            this.OnSignUpButton.ForeColor = System.Drawing.Color.White;
-            this.OnSignUpButton.Name = "OnSignUpButton";
-            this.OnSignUpButton.UseVisualStyleBackColor = false;
-            this.OnSignUpButton.Click += new System.EventHandler(this.OnSignUpButton_Click);
+            this.onSignUpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(78)))), ((int)(((byte)(244)))));
+            this.onSignUpButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.onSignUpButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.onSignUpButton.FlatAppearance.BorderSize = 0;
+            this.onSignUpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlanchedAlmond;
+            resources.ApplyResources(this.onSignUpButton, "onSignUpButton");
+            this.onSignUpButton.ForeColor = System.Drawing.Color.White;
+            this.onSignUpButton.Name = "onSignUpButton";
+            this.onSignUpButton.UseVisualStyleBackColor = false;
+            this.onSignUpButton.Click += new System.EventHandler(this.OnSignUpButton_Click);
             // 
-            // ReturnButton
+            // returnButton
             // 
-            this.ReturnButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.ReturnButton.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ReturnButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.ReturnButton.FlatAppearance.BorderSize = 0;
-            this.ReturnButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlanchedAlmond;
-            resources.ApplyResources(this.ReturnButton, "ReturnButton");
-            this.ReturnButton.ForeColor = System.Drawing.Color.White;
-            this.ReturnButton.Name = "ReturnButton";
-            this.ReturnButton.UseVisualStyleBackColor = false;
-            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
+            this.returnButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.returnButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.returnButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.returnButton.FlatAppearance.BorderSize = 0;
+            this.returnButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlanchedAlmond;
+            resources.ApplyResources(this.returnButton, "returnButton");
+            this.returnButton.ForeColor = System.Drawing.Color.White;
+            this.returnButton.Name = "returnButton";
+            this.returnButton.UseVisualStyleBackColor = false;
+            this.returnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
             // panel4
             // 
@@ -170,41 +170,41 @@ namespace MKP_ver1
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
-            // LastName
+            // lastNameBox
             // 
-            this.LastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.LastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LastName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            resources.ApplyResources(this.LastName, "LastName");
-            this.LastName.ForeColor = System.Drawing.Color.White;
-            this.LastName.Name = "LastName";
-            this.LastName.Tag = "";
-            this.LastName.Enter += new System.EventHandler(this.LastName_Enter);
-            this.LastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LastName_KeyPress);
-            this.LastName.Leave += new System.EventHandler(this.LastName_Leave);
+            this.lastNameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.lastNameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lastNameBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            resources.ApplyResources(this.lastNameBox, "lastNameBox");
+            this.lastNameBox.ForeColor = System.Drawing.Color.White;
+            this.lastNameBox.Name = "lastNameBox";
+            this.lastNameBox.Tag = "";
+            this.lastNameBox.Enter += new System.EventHandler(this.LastName_Enter);
+            this.lastNameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LastName_KeyPress);
+            this.lastNameBox.Leave += new System.EventHandler(this.LastName_Leave);
             // 
-            // comboBox1
+            // whoUserContext
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            resources.GetString("comboBox1.Items"),
-            resources.GetString("comboBox1.Items1")});
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.Name = "comboBox1";
+            this.whoUserContext.FormattingEnabled = true;
+            this.whoUserContext.Items.AddRange(new object[] {
+            resources.GetString("whoUserContext.Items"),
+            resources.GetString("whoUserContext.Items1")});
+            resources.ApplyResources(this.whoUserContext, "whoUserContext");
+            this.whoUserContext.Name = "whoUserContext";
             // 
-            // Iam
+            // iAmTxt
             // 
-            resources.ApplyResources(this.Iam, "Iam");
-            this.Iam.ForeColor = System.Drawing.Color.White;
-            this.Iam.Name = "Iam";
+            resources.ApplyResources(this.iAmTxt, "iAmTxt");
+            this.iAmTxt.ForeColor = System.Drawing.Color.White;
+            this.iAmTxt.Name = "iAmTxt";
             // 
-            // CloseButton
+            // closeButton
             // 
-            this.CloseButton.Image = global::MKP_ver1.Properties.Resources.ExitButton;
-            resources.ApplyResources(this.CloseButton, "CloseButton");
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.TabStop = false;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.closeButton.Image = global::MKP_ver1.Properties.Resources.ExitButton;
+            resources.ApplyResources(this.closeButton, "closeButton");
+            this.closeButton.Name = "closeButton";
+            this.closeButton.TabStop = false;
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // pictureBox1
             // 
@@ -218,26 +218,26 @@ namespace MKP_ver1
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             resources.ApplyResources(this, "$this");
             this.ControlBox = false;
-            this.Controls.Add(this.CloseButton);
-            this.Controls.Add(this.Iam);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.iAmTxt);
+            this.Controls.Add(this.whoUserContext);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.LastName);
-            this.Controls.Add(this.ReturnButton);
-            this.Controls.Add(this.OnSignUpButton);
+            this.Controls.Add(this.lastNameBox);
+            this.Controls.Add(this.returnButton);
+            this.Controls.Add(this.onSignUpButton);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.RepeatPassTxt);
+            this.Controls.Add(this.repeatPassBox);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.PassTxt);
+            this.Controls.Add(this.passBox);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.LoginTxt);
+            this.Controls.Add(this.loginBox);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.UsernameBox);
-            this.Controls.Add(this.Register);
+            this.Controls.Add(this.nameBox);
+            this.Controls.Add(this.registerTxt);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SignUpView";
-            ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -247,21 +247,21 @@ namespace MKP_ver1
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label Register;
+        private System.Windows.Forms.Label registerTxt;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox UsernameBox;
+        private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox LoginTxt;
+        private System.Windows.Forms.TextBox loginBox;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox PassTxt;
+        private System.Windows.Forms.TextBox passBox;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox RepeatPassTxt;
-        private System.Windows.Forms.Button OnSignUpButton;
-        private System.Windows.Forms.Button ReturnButton;
+        private System.Windows.Forms.TextBox repeatPassBox;
+        private System.Windows.Forms.Button onSignUpButton;
+        private System.Windows.Forms.Button returnButton;
         private Panel panel4;
-        private TextBox LastName;
-        private ComboBox comboBox1;
-        private Label Iam;
-        private PictureBox CloseButton;
+        private TextBox lastNameBox;
+        private ComboBox whoUserContext;
+        private Label iAmTxt;
+        private PictureBox closeButton;
     }
 }

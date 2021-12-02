@@ -34,85 +34,128 @@ namespace MKP_ver1
             MessageBoxButtons btn = MessageBoxButtons.OK;
             MessageBoxIcon ico = MessageBoxIcon.Information;
             string caption = "";
+
+            if (string.IsNullOrEmpty(nameBox.Text) || nameBox.Text == "Имя")
+            {
+                MessageBox.Show("Введите имя.", caption, btn, ico);
+                nameBox.Select();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(lastNameBox.Text) || lastNameBox.Text == "Фамилия")
+            {
+                MessageBox.Show("Введите фамилию.", caption, btn, ico);
+                lastNameBox.Select();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(loginBox.Text) || loginBox.Text == "Логин")
+            {
+                MessageBox.Show("Введите логин.", caption, btn, ico);
+                loginBox.Select();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(passBox.Text) || passBox.Text == "Пароль")
+            {
+                MessageBox.Show("Введите пароль.", caption, btn, ico);
+                passBox.Select();
+                return;
+            }
+
+            if (repeatPassBox.Text != passBox.Text)
+            {
+                MessageBox.Show("Пароли не совпадают.", caption, btn, ico);
+                repeatPassBox.Select();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(whoUserContext.Text) || 
+                whoUserContext.Text != "Работником" && whoUserContext.Text != "Пользователем")
+            {
+                MessageBox.Show("Выберите кем вы являетесь.", caption, btn, ico);
+                whoUserContext.Select();
+                return;
+            }
         }
 
         private void UsernameBox_Enter(object sender, EventArgs e)
         {
-            if(UsernameBox.Text == "Имя")
+            if(nameBox.Text == "Имя")
             {
-                UsernameBox.Clear();
+                nameBox.Clear();
             }
         }
 
         private void UsernameBox_Leave(object sender, EventArgs e)
         {
-            if (UsernameBox.Text == string.Empty)
+            if (nameBox.Text == string.Empty)
             {
-                UsernameBox.Text = "Имя";
+                nameBox.Text = "Имя";
             }
         }
 
         private void LastName_Enter(object sender, EventArgs e)
         {
-            if (LastName.Text == "Фамилия")
+            if (lastNameBox.Text == "Фамилия")
             {
-                LastName.Clear();
+                lastNameBox.Clear();
             }
         }
 
         private void LastName_Leave(object sender, EventArgs e)
         {
-            if (LastName.Text == string.Empty)
+            if (lastNameBox.Text == string.Empty)
             {
-                LastName.Text = "Фамилия";
+                lastNameBox.Text = "Фамилия";
             }
         }
 
         private void LoginTxt_Enter(object sender, EventArgs e)
         {
-            if(LoginTxt.Text == "Логин")
+            if(loginBox.Text == "Логин")
             {
-                LoginTxt.Clear();
+                loginBox.Clear();
             }
         }
 
         private void LoginTxt_Leave(object sender, EventArgs e)
         {
-            if(LoginTxt.Text == string.Empty)
+            if(loginBox.Text == string.Empty)
             {
-                LoginTxt.Text = "Логин";
+                loginBox.Text = "Логин";
             }
         }
 
         private void PassTxt_Enter(object sender, EventArgs e)
         {
-            if (PassTxt.Text == "Пароль")
+            if (passBox.Text == "Пароль")
             {
-                PassTxt.Clear();
+                passBox.Clear();
             }
         }
 
         private void PassTxt_Leave(object sender, EventArgs e)
         {
-            if(PassTxt.Text == string.Empty)
+            if(passBox.Text == string.Empty)
             {
-                PassTxt.Text = "Пароль";
+                passBox.Text = "Пароль";
             }
         }
 
         private void RepeatPassTxt_Enter(object sender, EventArgs e)
         {
-            if (RepeatPassTxt.Text == "Повторите пароль")
+            if (repeatPassBox.Text == "Повторите пароль")
             {
-                RepeatPassTxt.Clear();
+                repeatPassBox.Clear();
             }
         }
 
         private void RepeatPassTxt_Leave(object sender, EventArgs e)
         {
-            if(RepeatPassTxt.Text == string.Empty)
+            if(repeatPassBox.Text == string.Empty)
             {
-                RepeatPassTxt.Text = "Повторите пароль";
+                repeatPassBox.Text = "Повторите пароль";
             }    
         }
 
