@@ -1,4 +1,6 @@
-﻿namespace MKP_ver1
+﻿using System;
+
+namespace MKP_ver1
 {
     partial class OrderWindowView
     {
@@ -33,22 +35,23 @@
             this.lastNameBox = new System.Windows.Forms.TextBox();
             this.companyBox = new System.Windows.Forms.TextBox();
             this.deviceBox = new System.Windows.Forms.TextBox();
-            this.createYearBox = new System.Windows.Forms.TextBox();
             this.countryOfOriginBox = new System.Windows.Forms.TextBox();
-            this.remontTypeTxt = new System.Windows.Forms.Label();
+            this.remontTypeLabel = new System.Windows.Forms.Label();
             this.deviceTypeContext = new System.Windows.Forms.ComboBox();
             this.timesInRepairBox = new System.Windows.Forms.TextBox();
             this.daysInOperationBox = new System.Windows.Forms.TextBox();
             this.endDateTxt = new System.Windows.Forms.Label();
-            this.costTxt = new System.Windows.Forms.Label();
             this.startDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.endDateLabel = new System.Windows.Forms.Label();
             this.startDateTxt = new System.Windows.Forms.Label();
             this.createOrderButton = new System.Windows.Forms.Button();
             this.returnButton = new System.Windows.Forms.Button();
             this.deviceTypeBox = new System.Windows.Forms.TextBox();
             this.closeButton = new System.Windows.Forms.PictureBox();
+            this.createYearDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.costTxt = new System.Windows.Forms.Label();
+            this.costLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,10 +66,12 @@
             this.nameBox.MaxLength = 15;
             this.nameBox.Name = "nameBox";
             this.nameBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.nameBox.Size = new System.Drawing.Size(334, 23);
+            this.nameBox.Size = new System.Drawing.Size(414, 23);
             this.nameBox.TabIndex = 26;
             this.nameBox.Tag = "";
             this.nameBox.Text = "Имя";
+            this.nameBox.Enter += new System.EventHandler(this.nameBox_Enter);
+            this.nameBox.Leave += new System.EventHandler(this.nameBox_Leave);
             // 
             // createOrderTxt
             // 
@@ -92,10 +97,12 @@
             this.lastNameBox.MaxLength = 15;
             this.lastNameBox.Name = "lastNameBox";
             this.lastNameBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lastNameBox.Size = new System.Drawing.Size(334, 23);
+            this.lastNameBox.Size = new System.Drawing.Size(414, 23);
             this.lastNameBox.TabIndex = 28;
             this.lastNameBox.Tag = "";
             this.lastNameBox.Text = "Фамилия";
+            this.lastNameBox.Enter += new System.EventHandler(this.lastNameBox_Enter);
+            this.lastNameBox.Leave += new System.EventHandler(this.lastNameBox_Leave);
             // 
             // companyBox
             // 
@@ -108,10 +115,12 @@
             this.companyBox.MaxLength = 15;
             this.companyBox.Name = "companyBox";
             this.companyBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.companyBox.Size = new System.Drawing.Size(334, 23);
+            this.companyBox.Size = new System.Drawing.Size(414, 23);
             this.companyBox.TabIndex = 29;
             this.companyBox.Tag = "";
             this.companyBox.Text = "Компания";
+            this.companyBox.Enter += new System.EventHandler(this.companyBox_Enter);
+            this.companyBox.Leave += new System.EventHandler(this.companyBox_Leave);
             // 
             // deviceBox
             // 
@@ -124,26 +133,12 @@
             this.deviceBox.MaxLength = 15;
             this.deviceBox.Name = "deviceBox";
             this.deviceBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.deviceBox.Size = new System.Drawing.Size(334, 23);
+            this.deviceBox.Size = new System.Drawing.Size(414, 23);
             this.deviceBox.TabIndex = 30;
             this.deviceBox.Tag = "";
             this.deviceBox.Text = "Оборудование";
-            // 
-            // createYearBox
-            // 
-            this.createYearBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.createYearBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.createYearBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.createYearBox.Font = new System.Drawing.Font("Cera Pro", 10.8F);
-            this.createYearBox.ForeColor = System.Drawing.Color.White;
-            this.createYearBox.Location = new System.Drawing.Point(48, 390);
-            this.createYearBox.MaxLength = 15;
-            this.createYearBox.Name = "createYearBox";
-            this.createYearBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.createYearBox.Size = new System.Drawing.Size(334, 23);
-            this.createYearBox.TabIndex = 32;
-            this.createYearBox.Tag = "";
-            this.createYearBox.Text = "Год выпуска";
+            this.deviceBox.Enter += new System.EventHandler(this.deviceBox_Enter);
+            this.deviceBox.Leave += new System.EventHandler(this.deviceBox_Leave);
             // 
             // countryOfOriginBox
             // 
@@ -156,23 +151,25 @@
             this.countryOfOriginBox.MaxLength = 15;
             this.countryOfOriginBox.Name = "countryOfOriginBox";
             this.countryOfOriginBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.countryOfOriginBox.Size = new System.Drawing.Size(334, 23);
+            this.countryOfOriginBox.Size = new System.Drawing.Size(414, 23);
             this.countryOfOriginBox.TabIndex = 33;
             this.countryOfOriginBox.Tag = "";
             this.countryOfOriginBox.Text = "Страна производитель";
+            this.countryOfOriginBox.Enter += new System.EventHandler(this.countryOfOriginBox_Enter);
+            this.countryOfOriginBox.Leave += new System.EventHandler(this.countryOfOriginBox_Leave);
             // 
-            // remontTypeTxt
+            // remontTypeLabel
             // 
-            this.remontTypeTxt.AccessibleName = "";
-            this.remontTypeTxt.AutoSize = true;
-            this.remontTypeTxt.Font = new System.Drawing.Font("Cera Pro", 13.8F, System.Drawing.FontStyle.Bold);
-            this.remontTypeTxt.ForeColor = System.Drawing.Color.White;
-            this.remontTypeTxt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.remontTypeTxt.Location = new System.Drawing.Point(688, 91);
-            this.remontTypeTxt.Name = "remontTypeTxt";
-            this.remontTypeTxt.Size = new System.Drawing.Size(163, 29);
-            this.remontTypeTxt.TabIndex = 35;
-            this.remontTypeTxt.Text = "Вид ремонта:";
+            this.remontTypeLabel.AccessibleName = "";
+            this.remontTypeLabel.AutoSize = true;
+            this.remontTypeLabel.Font = new System.Drawing.Font("Cera Pro", 13.8F, System.Drawing.FontStyle.Bold);
+            this.remontTypeLabel.ForeColor = System.Drawing.Color.White;
+            this.remontTypeLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.remontTypeLabel.Location = new System.Drawing.Point(688, 91);
+            this.remontTypeLabel.Name = "remontTypeLabel";
+            this.remontTypeLabel.Size = new System.Drawing.Size(163, 29);
+            this.remontTypeLabel.TabIndex = 35;
+            this.remontTypeLabel.Text = "Вид ремонта:";
             // 
             // deviceTypeContext
             // 
@@ -185,6 +182,7 @@
             this.deviceTypeContext.Name = "deviceTypeContext";
             this.deviceTypeContext.Size = new System.Drawing.Size(223, 24);
             this.deviceTypeContext.TabIndex = 34;
+            this.deviceTypeContext.TextChanged += new System.EventHandler(this.deviceTypeContext_TextChanged);
             // 
             // timesInRepairBox
             // 
@@ -197,10 +195,12 @@
             this.timesInRepairBox.MaxLength = 15;
             this.timesInRepairBox.Name = "timesInRepairBox";
             this.timesInRepairBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.timesInRepairBox.Size = new System.Drawing.Size(334, 23);
+            this.timesInRepairBox.Size = new System.Drawing.Size(444, 23);
             this.timesInRepairBox.TabIndex = 36;
             this.timesInRepairBox.Tag = "";
             this.timesInRepairBox.Text = "Кол-во раз в ремонте";
+            this.timesInRepairBox.Enter += new System.EventHandler(this.timesInRepairBox_Enter);
+            this.timesInRepairBox.Leave += new System.EventHandler(this.timesInRepairBox_Leave);
             // 
             // daysInOperationBox
             // 
@@ -213,10 +213,13 @@
             this.daysInOperationBox.MaxLength = 15;
             this.daysInOperationBox.Name = "daysInOperationBox";
             this.daysInOperationBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.daysInOperationBox.Size = new System.Drawing.Size(334, 23);
+            this.daysInOperationBox.Size = new System.Drawing.Size(444, 23);
             this.daysInOperationBox.TabIndex = 38;
             this.daysInOperationBox.Tag = "";
             this.daysInOperationBox.Text = "Дней в работе";
+            this.daysInOperationBox.TextChanged += new System.EventHandler(this.daysInOperationBox_TextChanged);
+            this.daysInOperationBox.Enter += new System.EventHandler(this.daysInOperationBox_Enter);
+            this.daysInOperationBox.Leave += new System.EventHandler(this.daysInOperationBox_Leave);
             // 
             // endDateTxt
             // 
@@ -231,52 +234,27 @@
             this.endDateTxt.TabIndex = 39;
             this.endDateTxt.Text = "Дата окончания:";
             // 
-            // costTxt
-            // 
-            this.costTxt.AccessibleName = "";
-            this.costTxt.AutoSize = true;
-            this.costTxt.Font = new System.Drawing.Font("Cera Pro", 13.8F, System.Drawing.FontStyle.Bold);
-            this.costTxt.ForeColor = System.Drawing.Color.White;
-            this.costTxt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.costTxt.Location = new System.Drawing.Point(688, 384);
-            this.costTxt.Name = "costTxt";
-            this.costTxt.Size = new System.Drawing.Size(141, 29);
-            this.costTxt.TabIndex = 40;
-            this.costTxt.Text = "Стоимость:";
-            // 
             // startDatePicker
             // 
             this.startDatePicker.Location = new System.Drawing.Point(914, 197);
             this.startDatePicker.Name = "startDatePicker";
             this.startDatePicker.Size = new System.Drawing.Size(223, 22);
             this.startDatePicker.TabIndex = 41;
-            this.startDatePicker.Value = System.DateTime.Now;
+            this.startDatePicker.Value = new System.DateTime(2021, 12, 17, 0, 0, 0, 0);
+            this.startDatePicker.ValueChanged += new System.EventHandler(this.startDatePicker_ValueChanged);
             // 
-            // label3
+            // endDateLabel
             // 
-            this.label3.AccessibleName = "";
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cera Pro", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(909, 320);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 29);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Я являюсь";
-            // 
-            // label4
-            // 
-            this.label4.AccessibleName = "";
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cera Pro", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(909, 384);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 29);
-            this.label4.TabIndex = 43;
-            this.label4.Text = "Я являюсь";
+            this.endDateLabel.AccessibleName = "";
+            this.endDateLabel.AutoSize = true;
+            this.endDateLabel.Font = new System.Drawing.Font("Cera Pro", 13.8F, System.Drawing.FontStyle.Bold);
+            this.endDateLabel.ForeColor = System.Drawing.Color.White;
+            this.endDateLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.endDateLabel.Location = new System.Drawing.Point(909, 320);
+            this.endDateLabel.Name = "endDateLabel";
+            this.endDateLabel.Size = new System.Drawing.Size(43, 29);
+            this.endDateLabel.TabIndex = 42;
+            this.endDateLabel.Text = "Да";
             // 
             // startDateTxt
             // 
@@ -339,10 +317,12 @@
             this.deviceTypeBox.MaxLength = 15;
             this.deviceTypeBox.Name = "deviceTypeBox";
             this.deviceTypeBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.deviceTypeBox.Size = new System.Drawing.Size(334, 23);
+            this.deviceTypeBox.Size = new System.Drawing.Size(414, 23);
             this.deviceTypeBox.TabIndex = 31;
             this.deviceTypeBox.Tag = "";
             this.deviceTypeBox.Text = "Тип оборудования";
+            this.deviceTypeBox.Enter += new System.EventHandler(this.deviceTypeBox_Enter);
+            this.deviceTypeBox.Leave += new System.EventHandler(this.deviceTypeBox_Leave);
             // 
             // closeButton
             // 
@@ -356,26 +336,74 @@
             this.closeButton.TabStop = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // createYearDatePicker
+            // 
+            this.createYearDatePicker.Location = new System.Drawing.Point(239, 391);
+            this.createYearDatePicker.Name = "createYearDatePicker";
+            this.createYearDatePicker.Size = new System.Drawing.Size(223, 22);
+            this.createYearDatePicker.TabIndex = 47;
+            this.createYearDatePicker.Value = new System.DateTime(2021, 12, 17, 0, 0, 0, 0);
+            // 
+            // label1
+            // 
+            this.label1.AccessibleName = "";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cera Pro", 13.8F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(43, 384);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(158, 29);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Год выпуска:";
+            // 
+            // costTxt
+            // 
+            this.costTxt.AccessibleName = "";
+            this.costTxt.AutoSize = true;
+            this.costTxt.Font = new System.Drawing.Font("Cera Pro", 13.8F, System.Drawing.FontStyle.Bold);
+            this.costTxt.ForeColor = System.Drawing.Color.White;
+            this.costTxt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.costTxt.Location = new System.Drawing.Point(688, 384);
+            this.costTxt.Name = "costTxt";
+            this.costTxt.Size = new System.Drawing.Size(141, 29);
+            this.costTxt.TabIndex = 40;
+            this.costTxt.Text = "Стоимость:";
+            // 
+            // costLabel
+            // 
+            this.costLabel.AccessibleName = "";
+            this.costLabel.AutoSize = true;
+            this.costLabel.Font = new System.Drawing.Font("Cera Pro", 13.8F, System.Drawing.FontStyle.Bold);
+            this.costLabel.ForeColor = System.Drawing.Color.White;
+            this.costLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.costLabel.Location = new System.Drawing.Point(909, 384);
+            this.costLabel.Name = "costLabel";
+            this.costLabel.Size = new System.Drawing.Size(130, 29);
+            this.costLabel.TabIndex = 43;
+            this.costLabel.Text = "Я являюсь";
+            // 
             // OrderWindowView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(1200, 650);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.createYearDatePicker);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.createOrderButton);
             this.Controls.Add(this.startDateTxt);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.costLabel);
+            this.Controls.Add(this.endDateLabel);
             this.Controls.Add(this.startDatePicker);
             this.Controls.Add(this.costTxt);
             this.Controls.Add(this.endDateTxt);
             this.Controls.Add(this.daysInOperationBox);
             this.Controls.Add(this.timesInRepairBox);
-            this.Controls.Add(this.remontTypeTxt);
+            this.Controls.Add(this.remontTypeLabel);
             this.Controls.Add(this.deviceTypeContext);
             this.Controls.Add(this.countryOfOriginBox);
-            this.Controls.Add(this.createYearBox);
             this.Controls.Add(this.deviceTypeBox);
             this.Controls.Add(this.deviceBox);
             this.Controls.Add(this.companyBox);
@@ -402,20 +430,21 @@
         private System.Windows.Forms.TextBox lastNameBox;
         private System.Windows.Forms.TextBox companyBox;
         private System.Windows.Forms.TextBox deviceBox;
-        private System.Windows.Forms.TextBox createYearBox;
         private System.Windows.Forms.TextBox countryOfOriginBox;
-        private System.Windows.Forms.Label remontTypeTxt;
+        private System.Windows.Forms.Label remontTypeLabel;
         private System.Windows.Forms.ComboBox deviceTypeContext;
         private System.Windows.Forms.TextBox timesInRepairBox;
         private System.Windows.Forms.TextBox daysInOperationBox;
         private System.Windows.Forms.Label endDateTxt;
-        private System.Windows.Forms.Label costTxt;
         private System.Windows.Forms.DateTimePicker startDatePicker;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label endDateLabel;
         private System.Windows.Forms.Label startDateTxt;
         private System.Windows.Forms.Button createOrderButton;
         private System.Windows.Forms.Button returnButton;
         private System.Windows.Forms.TextBox deviceTypeBox;
+        private System.Windows.Forms.DateTimePicker createYearDatePicker;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label costTxt;
+        private System.Windows.Forms.Label costLabel;
     }
 }

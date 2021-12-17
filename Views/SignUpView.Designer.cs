@@ -35,7 +35,7 @@ namespace MKP_ver1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpView));
-            this.registerTxt = new System.Windows.Forms.Label();
+            this.registerLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -49,18 +49,18 @@ namespace MKP_ver1
             this.panel4 = new System.Windows.Forms.Panel();
             this.lastNameBox = new System.Windows.Forms.TextBox();
             this.whoUserContext = new System.Windows.Forms.ComboBox();
-            this.iAmTxt = new System.Windows.Forms.Label();
+            this.iAmLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // registerTxt
+            // registerLabel
             // 
-            resources.ApplyResources(this.registerTxt, "registerTxt");
-            this.registerTxt.ForeColor = System.Drawing.Color.White;
-            this.registerTxt.Name = "registerTxt";
+            resources.ApplyResources(this.registerLabel, "registerLabel");
+            this.registerLabel.ForeColor = System.Drawing.Color.White;
+            this.registerLabel.Name = "registerLabel";
             // 
             // panel2
             // 
@@ -192,11 +192,11 @@ namespace MKP_ver1
             resources.ApplyResources(this.whoUserContext, "whoUserContext");
             this.whoUserContext.Name = "whoUserContext";
             // 
-            // iAmTxt
+            // iAmLabel
             // 
-            resources.ApplyResources(this.iAmTxt, "iAmTxt");
-            this.iAmTxt.ForeColor = System.Drawing.Color.White;
-            this.iAmTxt.Name = "iAmTxt";
+            resources.ApplyResources(this.iAmLabel, "iAmLabel");
+            this.iAmLabel.ForeColor = System.Drawing.Color.White;
+            this.iAmLabel.Name = "iAmLabel";
             // 
             // closeButton
             // 
@@ -219,7 +219,7 @@ namespace MKP_ver1
             resources.ApplyResources(this, "$this");
             this.ControlBox = false;
             this.Controls.Add(this.closeButton);
-            this.Controls.Add(this.iAmTxt);
+            this.Controls.Add(this.iAmLabel);
             this.Controls.Add(this.whoUserContext);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.lastNameBox);
@@ -233,7 +233,7 @@ namespace MKP_ver1
             this.Controls.Add(this.loginBox);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.nameBox);
-            this.Controls.Add(this.registerTxt);
+            this.Controls.Add(this.registerLabel);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SignUpView";
@@ -247,7 +247,7 @@ namespace MKP_ver1
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label registerTxt;
+        private System.Windows.Forms.Label registerLabel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.Panel panel1;
@@ -261,7 +261,7 @@ namespace MKP_ver1
         private Panel panel4;
         private TextBox lastNameBox;
         private ComboBox whoUserContext;
-        private Label iAmTxt;
+        private Label iAmLabel;
         private PictureBox closeButton;
     }
 }

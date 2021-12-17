@@ -35,44 +35,81 @@ namespace MKP_ver1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginView));
-            this.Panel = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.adminCheck = new System.Windows.Forms.CheckBox();
+            this.closeButton = new System.Windows.Forms.PictureBox();
             this.signUpButton = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.usernameBox = new System.Windows.Forms.TextBox();
-            this.loginTxt = new System.Windows.Forms.Label();
+            this.loginLabel = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.closeButton = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Panel
+            // panel
             // 
-            this.Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.Panel.Controls.Add(this.closeButton);
-            this.Panel.Controls.Add(this.signUpButton);
-            this.Panel.Controls.Add(this.loginButton);
-            this.Panel.Controls.Add(this.panel3);
-            this.Panel.Controls.Add(this.pictureBox4);
-            this.Panel.Controls.Add(this.passwordBox);
-            this.Panel.Controls.Add(this.panel2);
-            this.Panel.Controls.Add(this.pictureBox3);
-            this.Panel.Controls.Add(this.usernameBox);
-            this.Panel.Controls.Add(this.loginTxt);
-            this.Panel.Location = new System.Drawing.Point(409, -1);
-            this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(294, 415);
-            this.Panel.TabIndex = 2;
+            this.panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.panel.Controls.Add(this.label1);
+            this.panel.Controls.Add(this.adminCheck);
+            this.panel.Controls.Add(this.closeButton);
+            this.panel.Controls.Add(this.signUpButton);
+            this.panel.Controls.Add(this.loginButton);
+            this.panel.Controls.Add(this.panel3);
+            this.panel.Controls.Add(this.pictureBox4);
+            this.panel.Controls.Add(this.passwordBox);
+            this.panel.Controls.Add(this.panel2);
+            this.panel.Controls.Add(this.pictureBox3);
+            this.panel.Controls.Add(this.usernameBox);
+            this.panel.Controls.Add(this.loginLabel);
+            this.panel.Location = new System.Drawing.Point(409, -1);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(294, 415);
+            this.panel.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AccessibleName = "";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cera Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(33, 213);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 21);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Войти как админ";
+            // 
+            // adminCheck
+            // 
+            this.adminCheck.AutoSize = true;
+            this.adminCheck.Location = new System.Drawing.Point(245, 218);
+            this.adminCheck.Name = "adminCheck";
+            this.adminCheck.Size = new System.Drawing.Size(18, 17);
+            this.adminCheck.TabIndex = 25;
+            this.adminCheck.UseVisualStyleBackColor = true;
+            // 
+            // closeButton
+            // 
+            this.closeButton.Image = global::MKP_ver1.Properties.Resources.ExitButton;
+            this.closeButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.closeButton.Location = new System.Drawing.Point(256, 13);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(25, 25);
+            this.closeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closeButton.TabIndex = 24;
+            this.closeButton.TabStop = false;
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // signUpButton
             // 
@@ -118,6 +155,16 @@ namespace MKP_ver1
             this.panel3.Size = new System.Drawing.Size(226, 5);
             this.panel3.TabIndex = 6;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(240, 153);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(23, 23);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 5;
+            this.pictureBox4.TabStop = false;
+            // 
             // passwordBox
             // 
             this.passwordBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -145,6 +192,16 @@ namespace MKP_ver1
             this.panel2.Size = new System.Drawing.Size(226, 5);
             this.panel2.TabIndex = 3;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(240, 97);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(23, 23);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
             // usernameBox
             // 
             this.usernameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -163,17 +220,17 @@ namespace MKP_ver1
             this.usernameBox.Enter += new System.EventHandler(this.UsernameBox_Enter);
             this.usernameBox.Leave += new System.EventHandler(this.UsernameBox_Leave);
             // 
-            // loginTxt
+            // loginLabel
             // 
-            this.loginTxt.AccessibleName = "";
-            this.loginTxt.AutoSize = true;
-            this.loginTxt.Font = new System.Drawing.Font("Cera Pro", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginTxt.ForeColor = System.Drawing.Color.White;
-            this.loginTxt.Location = new System.Drawing.Point(29, 13);
-            this.loginTxt.Name = "loginTxt";
-            this.loginTxt.Size = new System.Drawing.Size(227, 41);
-            this.loginTxt.TabIndex = 0;
-            this.loginTxt.Text = "Авторизация";
+            this.loginLabel.AccessibleName = "";
+            this.loginLabel.AutoSize = true;
+            this.loginLabel.Font = new System.Drawing.Font("Cera Pro", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginLabel.ForeColor = System.Drawing.Color.White;
+            this.loginLabel.Location = new System.Drawing.Point(29, 13);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(227, 41);
+            this.loginLabel.TabIndex = 0;
+            this.loginLabel.Text = "Авторизация";
             // 
             // pictureBox2
             // 
@@ -195,38 +252,6 @@ namespace MKP_ver1
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // closeButton
-            // 
-            this.closeButton.Image = global::MKP_ver1.Properties.Resources.ExitButton;
-            this.closeButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.closeButton.Location = new System.Drawing.Point(256, 13);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(25, 25);
-            this.closeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.closeButton.TabIndex = 24;
-            this.closeButton.TabStop = false;
-            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(240, 153);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(23, 23);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(240, 97);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(23, 23);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -235,26 +260,26 @@ namespace MKP_ver1
             this.ClientSize = new System.Drawing.Size(702, 413);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.Panel);
+            this.Controls.Add(this.panel);
             this.Font = new System.Drawing.Font("Cera Pro", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginView";
-            this.Panel.ResumeLayout(false);
-            this.Panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel Panel;
-        private System.Windows.Forms.Label loginTxt;
+        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.TextBox usernameBox;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel3;
@@ -266,5 +291,7 @@ namespace MKP_ver1
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button signUpButton;
         private PictureBox closeButton;
+        private Label label1;
+        private CheckBox adminCheck;
     }
 }

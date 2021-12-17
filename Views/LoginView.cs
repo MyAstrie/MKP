@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace MKP_ver1
 {
     public partial class LoginView : Form
     {
+        public static string userRole;
+
         public LoginView()
         {
             InitializeComponent();
@@ -61,11 +64,95 @@ namespace MKP_ver1
             }
         }
 
+        // Представляем подключение к локальной базе данных
+        SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
+
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            MainWindowView mainWindowView = new MainWindowView();
-            mainWindowView.Show();
-            this.Hide();
+            MessageBoxButtons btn = MessageBoxButtons.OK;
+            MessageBoxIcon ico = MessageBoxIcon.Information;
+            string caption = "";
+
+            if (string.IsNullOrEmpty(usernameBox.Text) || usernameBox.Text == "Имя пользователя")
+            {
+                MessageBox.Show("Введите логин.", caption, btn, ico);
+                usernameBox.Select();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(passwordBox.Text) || passwordBox.Text == "Password")
+            {
+                MessageBox.Show("Введите пароль.", caption, btn, ico);
+                passwordBox.Select();
+                return;
+            }
+
+            try
+            {
+                conn.Open();
+
+                SqlDataAdapter dataAdapter;
+
+                if (adminCheck.Checked == true)
+                {
+                    // Получаем данные Админа и Пароля учитывая все строки в UserTable
+                    dataAdapter = new SqlDataAdapter("SELECT * FROM UserTable WHERE UserName='" + usernameBox.Text +
+                                                                    "'AND UserPass='" + passwordBox.Text +
+                                                                    "'AND UserProfession = N'Админ'", conn);
+                    DataTable dataTable = new DataTable();
+
+                    // Заполняем dataTable соответсвие строк в источник данных 
+                    dataAdapter.Fill(dataTable);
+
+                    // Проверка, где результатом будет кол-во строк соответствующих введенным данным
+                    if (dataTable.Rows.Count == 1)
+                    {
+                        userRole = "admin";
+                        MainWindowView mainWindow = new MainWindowView();
+                        mainWindow.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверный логин или пароль!");
+                    }
+                    conn.Close();
+                }
+                else
+                {
+                    // Получаем данные Админа и Пароля учитывая все строки в UserTable
+                    dataAdapter = new SqlDataAdapter("SELECT * FROM UserTable WHERE UserName = '" + usernameBox.Text +
+                                                                    "'AND UserPass='" + passwordBox.Text +
+                                                                    "'AND UserProfession =  N'Работник'", conn);
+                    DataTable dataTable = new DataTable();
+
+                    // Заполняем dataTable соответсвие строк в источник данных 
+                    dataAdapter.Fill(dataTable);
+
+                    // Проверка, где результатом будет кол-во строк соответствующих введенным данным
+                    if (dataTable.Rows.Count == 1)
+                    {
+                        userRole = "guest";
+                        MainWindowView mainWindow = new MainWindowView();
+                        mainWindow.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверный логин или пароль!");
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Open();
+                conn.Close();
+            }
         }
     }
 }

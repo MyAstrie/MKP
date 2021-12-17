@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace MKP_ver1
 {
@@ -15,6 +16,15 @@ namespace MKP_ver1
         public SignUpView()
         {
             InitializeComponent();
+            if(LoginView.userRole == "admin")
+            {
+                registerLabel.Text = "Добавить менеджера";
+                onSignUpButton.Text = "Добавить";
+            }
+            else
+            {
+                registerLabel.Text = "Регистрация";
+            }
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -24,13 +34,25 @@ namespace MKP_ver1
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
-            LoginView login = new LoginView();
-            login.Show();
-            this.Hide();
+            if(LoginView.userRole == "admin")
+            {
+                MainWindowView mainWindow = new MainWindowView();
+                mainWindow.Show();
+                this.Hide();
+            }
+            else
+            {
+                LoginView login = new LoginView();
+                login.Show();
+                this.Hide();
+            }
         }
+
+        SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
 
         private void OnSignUpButton_Click(object sender, EventArgs e)
         {
+            // Параметры для окна ошибок при незаполненных полях
             MessageBoxButtons btn = MessageBoxButtons.OK;
             MessageBoxIcon ico = MessageBoxIcon.Information;
             string caption = "";
@@ -70,13 +92,81 @@ namespace MKP_ver1
                 return;
             }
 
-            if (string.IsNullOrEmpty(whoUserContext.Text) || 
-                whoUserContext.Text != "Работником" && whoUserContext.Text != "Пользователем")
+            if (string.IsNullOrEmpty(whoUserContext.Text) ||
+                whoUserContext.Text != "Работник" && whoUserContext.Text != "Админ")
             {
                 MessageBox.Show("Выберите кем вы являетесь.", caption, btn, ico);
                 whoUserContext.Select();
                 return;
             }
+
+            try
+            {
+                conn.Open();
+                // Работа с таблицей пользователей расположенной в базе данных
+                SqlCommand command = new SqlCommand("INSERT INTO UserTable(UserName, UserLastName, UserLogin, UserPass, UserProfession) VALUES(@UName, @ULastName, @ULogin, @UPass, @UProf)", conn);
+
+                // Получаем данные Логина учитывая все строки в UserTbl
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT COUNT(*) FROM UserTable WHERE UserLogin ='" + loginBox.Text + "'", conn);
+
+                DataTable dataTable = new DataTable();
+
+                // Заполняем dataTable соответсвием строк в источник данных 
+                dataAdapter.Fill(dataTable);
+
+                // Проверка, где результатом будет кол-во строк соответствующих введенным данным
+                if (dataTable.Rows[0][0].ToString() == "1")
+                {
+                    MessageBox.Show("Логин Занят.", caption, btn, ico);
+                    loginBox.Select();
+                    return;
+                }
+
+                // Считывание данных с полей
+                command.Parameters.AddWithValue("@UName", nameBox.Text);
+                command.Parameters.AddWithValue("@ULastName", lastNameBox.Text);
+                command.Parameters.AddWithValue("@ULogin", loginBox.Text);
+                command.Parameters.AddWithValue("@UPass", passBox.Text);
+                command.Parameters.AddWithValue("@UProf", whoUserContext.Text);
+
+                // Обновление записей в базе данных
+                command.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Новый аккаунт создан!");
+                Clear();
+
+                if (LoginView.userRole == "admin")
+                {
+                    MainWindowView mainWindow = new MainWindowView();
+                    mainWindow.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    LoginView login = new LoginView();
+                    login.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Open();
+                conn.Close();
+            }
+        }
+
+        // Очистка полей
+        private void Clear()
+        {
+            nameBox.Text = "";
+            lastNameBox.Text = "";
+            loginBox.Text = "";
+            passBox.Text = "";
+            whoUserContext.Text = "";
         }
 
         private void UsernameBox_Enter(object sender, EventArgs e)
