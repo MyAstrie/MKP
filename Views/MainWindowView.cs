@@ -13,11 +13,18 @@ namespace MKP_ver1
 {
     public partial class MainWindowView : Form
     {
+        // Подключение базы данных
+        SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
+
         private int _key = 0;
 
         public MainWindowView()
         {
             InitializeComponent();
+        }
+
+        private void MainWindowView_Load(object sender, EventArgs e)
+        {
             if (LoginView.userRole == "admin")
             {
                 userNameLabel.Text = "Администрация";
@@ -25,6 +32,8 @@ namespace MKP_ver1
                 createButton.Size = new Size(240, 40);
                 createButton.Location = new Point(922, 73);
                 deleteButton.Location = new Point(723, 73);
+                idLabel.Text = "Id пользователя:";
+                idLabel.Location = new Point(400, 78);
             }
             else
             {
@@ -32,12 +41,13 @@ namespace MKP_ver1
                 createButton.Size = new Size(192, 40);
                 createButton.Location = new Point(970, 73);
                 deleteButton.Location = new Point(772, 73);
+                idLabel.Text = "Id заказа:";
+                idLabel.Location = new Point(489, 78);
             }
+            ShowDataTable();
         }
 
-        SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
-
-        private void showDataTable()
+        private void ShowDataTable()
         {
             if (LoginView.userRole == "admin")
             {
@@ -63,12 +73,12 @@ namespace MKP_ver1
             }
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
+        private void OnCloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void createButton_Click(object sender, EventArgs e)
+        private void OnCreateButton_Click(object sender, EventArgs e)
         {
             if (LoginView.userRole == "admin")
             {
@@ -84,19 +94,14 @@ namespace MKP_ver1
             }
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void OnBackButton_Click(object sender, EventArgs e)
         {
             LoginView login = new LoginView();
             login.Show();
             this.Hide();
         }
 
-        private void MainWindowView_Load(object sender, EventArgs e)
-        {
-            showDataTable();
-        }
-
-        private void deleteButton_Click(object sender, EventArgs e)
+        private void OnDeleteButton_Click(object sender, EventArgs e)
         {
             if (LoginView.userRole == "admin")
             {
@@ -115,7 +120,7 @@ namespace MKP_ver1
                     MessageBox.Show("Аккаунт удален!");
 
                     conn.Close();
-                    showDataTable();
+                    ShowDataTable();
                 }
                 catch (Exception ex)
                 {
@@ -140,7 +145,7 @@ namespace MKP_ver1
                     MessageBox.Show("Заказ удален!");
 
                     conn.Close();
-                    showDataTable();
+                    ShowDataTable();
                 }
                 catch (Exception ex)
                 {
@@ -152,15 +157,14 @@ namespace MKP_ver1
 
         private void dataPrinter_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox1.Text = dataPrinter.Rows[e.RowIndex].Cells[0].Value.ToString();
-;
+            idBox.Text = dataPrinter.Rows[e.RowIndex].Cells[0].Value.ToString();
             try
             {
-                _key = Convert.ToInt32(textBox1.Text);
+                _key = Convert.ToInt32(idBox.Text);
             }
             catch
             {
-                MessageBox.Show("Пользователь не выбран");
+                MessageBox.Show("Вы не выбрали,что удалить");
             }
         }
 
@@ -198,19 +202,12 @@ namespace MKP_ver1
 
         private void searchBox_Enter(object sender, EventArgs e)
         {
-            if (searchBox.Text == "Поиск по имени")
-            {
-                searchBox.Clear();
-            }
+            BoxInteract.EnterInBox(searchBox, "Поиск по имени");
         }
 
         private void searchBox_Leave(object sender, EventArgs e)
         {
-            if(searchBox.Text == String.Empty)
-            {
-                searchBox.Text = "Поиск по имени";
-                showDataTable();
-            }
+            BoxInteract.LeaveWithBox(searchBox, "Поиск по имени");
         }
     }
 }

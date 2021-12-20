@@ -13,78 +13,67 @@ namespace MKP_ver1
 {
     public partial class OrderWindowView : Form
     {
+        // Подключение базы данных
+        SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
+
         public OrderWindowView()
         {
             InitializeComponent();
         }
 
-        private void closeButton_Click(object sender, EventArgs e)
+        private void OnCloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void ReturnButton_Click(object sender, EventArgs e)
+        private void OnReturnButton_Click(object sender, EventArgs e)
         {
             MainWindowView mainWindowView = new MainWindowView();
             mainWindowView.Show();
             this.Hide();
         }
 
-        // Подключение базы данных
-        SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
-
-        private void createOrderButton_Click(object sender, EventArgs e)
+        private void OnCreateOrderButton_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons btn = MessageBoxButtons.OK;
-            MessageBoxIcon ico = MessageBoxIcon.Information;
-            string caption = "";
-
             if (string.IsNullOrEmpty(nameBox.Text) || nameBox.Text == "Имя")
             {
-                MessageBox.Show("Введите имя.", caption, btn, ico);
-                nameBox.Select();
+                BoxInteract.ShowBox(nameBox, "Введите имя.");
                 return;
             }
 
             if (string.IsNullOrEmpty(lastNameBox.Text) || lastNameBox.Text == "Фамилия")
             {
-                MessageBox.Show("Введите фамилию.", caption, btn, ico);
-                lastNameBox.Select();
+                BoxInteract.ShowBox(lastNameBox, "Введите фамилию.");
                 return;
             }
 
             if (string.IsNullOrEmpty(companyBox.Text) || companyBox.Text == "Компания")
             {
-                MessageBox.Show("Введите компанию.", caption, btn, ico);
-                companyBox.Select();
+                BoxInteract.ShowBox(companyBox, "Введите компанию.");
                 return;
             }
 
             if (string.IsNullOrEmpty(deviceBox.Text) || deviceBox.Text == "Оборудование")
             {
-                MessageBox.Show("Введите оборудование.", caption, btn, ico);
-                deviceBox.Select();
+                BoxInteract.ShowBox(deviceBox, "Введите оборудование.");
                 return;
             }
 
             if (string.IsNullOrEmpty(deviceTypeBox.Text) || deviceTypeBox.Text == "Тип оборудования")
             {
-                MessageBox.Show("Введите тип оборудования.", caption, btn, ico);
-                deviceTypeBox.Select();
+                BoxInteract.ShowBox(deviceTypeBox, "Введите тип оборудования.");
                 return;
             }
 
             if (DateTime.Compare(DateTime.Now, createYearDatePicker.Value) <= 0)
             {
-                MessageBox.Show("Проверьте год выпуска.", caption, btn, ico);
-                createYearDatePicker.Select();
+                BoxInteract.ShowBox("Проверьте год выпуска.");
                 return;
             }
 
             if (string.IsNullOrEmpty(countryOfOriginBox.Text) || countryOfOriginBox.Text == "Страна производитель")
             {
-                MessageBox.Show("Введите страну производителя.", caption, btn, ico);
-                countryOfOriginBox.Select();
+                BoxInteract.ShowBox(countryOfOriginBox, "Введите страну производителя.");
                 return;
             }
 
@@ -93,8 +82,7 @@ namespace MKP_ver1
                 deviceTypeContext.Text != "Средний" &&
                 deviceTypeContext.Text != "Капитальный")
             {
-                MessageBox.Show("Введите вид работы.", caption, btn, ico);
-                deviceTypeContext.Select();
+                BoxInteract.ShowBox("Введите вид работы.");
                 return;
             }
 
@@ -103,21 +91,19 @@ namespace MKP_ver1
                 if (string.IsNullOrEmpty(timesInRepairBox.Text) || timesInRepairBox.Text == "Кол-во раз в ремонте" ||
                     Convert.ToInt32(timesInRepairBox.Text) <= 0)
                 {
-                    MessageBox.Show("Проверьте кол-во раз в ремонте.", caption, btn, ico);
-                    timesInRepairBox.Select();
+                    BoxInteract.ShowBox(timesInRepairBox, "Проверьте кол-во раз в ремонте.");
                     return;
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Проверьте кол-во раз в ремонте.", caption, btn, ico);
+                BoxInteract.ShowBox(timesInRepairBox, "Проверьте кол-во раз в ремонте.");
                 return;
             }
 
             if (DateTime.Compare(DateTime.Now, startDatePicker.Value) > 0)
             {
-                MessageBox.Show($"Проверьте дату.", caption, btn, ico); ;
-                startDatePicker.Select();
+                BoxInteract.ShowBox("Проверьте дату начала.");
                 return;
             }
 
@@ -127,14 +113,13 @@ namespace MKP_ver1
                 if (string.IsNullOrEmpty(daysInOperationBox.Text) || daysInOperationBox.Text == "Дней в работе" ||
                     days <= 0)
                 {
-                    MessageBox.Show("Проверьте сколько дней вам необходимо.", caption, btn, ico);
-                    daysInOperationBox.Select();
+                    BoxInteract.ShowBox(daysInOperationBox, "Проверьте сколько дней вам необходимо.");
                     return;
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Проверьте сколько дней вам необходимо.", caption, btn, ico);
+                BoxInteract.ShowBox(daysInOperationBox, "Проверьте сколько дней вам необходимо.");
                 return;
             }
 
@@ -178,7 +163,6 @@ namespace MKP_ver1
             }
             catch (Exception ex)
             {
-                conn.Open();
                 conn.Close();
                 MessageBox.Show(ex.Message);
             }
@@ -244,130 +228,82 @@ namespace MKP_ver1
 
         private void nameBox_Enter(object sender, EventArgs e)
         {
-            if (nameBox.Text == "Имя")
-            {
-                nameBox.Clear();
-            }
+            BoxInteract.EnterInBox(nameBox, "Имя");
         }
 
         private void nameBox_Leave(object sender, EventArgs e)
         {
-            if (nameBox.Text == string.Empty)
-            {
-                nameBox.Text = "Имя";
-            }
+            BoxInteract.LeaveWithBox(nameBox, "Имя");
         }
 
         private void lastNameBox_Enter(object sender, EventArgs e)
         {
-            if (lastNameBox.Text == "Фамилия")
-            {
-                lastNameBox.Clear();
-            }
+            BoxInteract.EnterInBox(lastNameBox, "Фамилия");
         }
 
         private void lastNameBox_Leave(object sender, EventArgs e)
         {
-            if (lastNameBox.Text == string.Empty)
-            {
-                lastNameBox.Text = "Фамилия";
-            }
+            BoxInteract.LeaveWithBox(lastNameBox, "Фамилия");
         }
 
         private void companyBox_Enter(object sender, EventArgs e)
         {
-            if (companyBox.Text == "Компания")
-            {
-                companyBox.Clear();
-            }
+            BoxInteract.EnterInBox(companyBox, "Компания");
         }
 
         private void companyBox_Leave(object sender, EventArgs e)
         {
-            if (companyBox.Text == string.Empty)
-            {
-                companyBox.Text = "Компания";
-            }
+            BoxInteract.LeaveWithBox(companyBox, "Компания");
         }
 
         private void deviceBox_Enter(object sender, EventArgs e)
         {
-            if (deviceBox.Text == "Оборудование")
-            {
-                deviceBox.Clear();
-            }
+            BoxInteract.EnterInBox(deviceBox, "Оборудование");
         }
 
         private void deviceBox_Leave(object sender, EventArgs e)
         {
-            if (deviceBox.Text == string.Empty)
-            {
-                deviceBox.Text = "Оборудование";
-            }
+            BoxInteract.LeaveWithBox(deviceBox, "Оборудование");
         }
 
         private void deviceTypeBox_Enter(object sender, EventArgs e)
         {
-            if (deviceTypeBox.Text == "Тип оборудования")
-            {
-                deviceTypeBox.Clear();
-            }
+            BoxInteract.EnterInBox(deviceTypeBox, "Тип оборудования");
         }
 
         private void deviceTypeBox_Leave(object sender, EventArgs e)
         {
-            if (deviceTypeBox.Text == string.Empty)
-            {
-                deviceTypeBox.Text = "Тип оборудования";
-            }
+            BoxInteract.LeaveWithBox(deviceTypeBox, "Тип оборудования");
         }
 
         private void countryOfOriginBox_Enter(object sender, EventArgs e)
         {
-            if (countryOfOriginBox.Text == "Страна производитель")
-            {
-                countryOfOriginBox.Clear();
-            }
+            BoxInteract.EnterInBox(countryOfOriginBox, "Страна производитель");
         }
 
         private void countryOfOriginBox_Leave(object sender, EventArgs e)
         {
-            if (countryOfOriginBox.Text == string.Empty)
-            {
-                countryOfOriginBox.Text = "Страна производитель";
-            }
+            BoxInteract.LeaveWithBox(countryOfOriginBox, "Страна производитель");
         }
 
         private void timesInRepairBox_Enter(object sender, EventArgs e)
         {
-            if (timesInRepairBox.Text == "Кол-во раз в ремонте")
-            {
-                timesInRepairBox.Clear();
-            }
+            BoxInteract.EnterInBox(timesInRepairBox, "Кол-во раз в ремонте");
         }
 
         private void timesInRepairBox_Leave(object sender, EventArgs e)
         {
-            if (timesInRepairBox.Text == string.Empty)
-            {
-                timesInRepairBox.Text = "Кол-во раз в ремонте";
-            }
+            BoxInteract.LeaveWithBox(timesInRepairBox, "Кол-во раз в ремонте");
         }
 
         private void daysInOperationBox_Enter(object sender, EventArgs e)
         {
-            if (daysInOperationBox.Text == "Дней в работе")
-            {
-                daysInOperationBox.Clear();
-            }
+            BoxInteract.EnterInBox(daysInOperationBox, "Дней в работе");
         }
 
         private void daysInOperationBox_Leave(object sender, EventArgs e)
         {
-            if (daysInOperationBox.Text == string.Empty)
-            {
-                daysInOperationBox.Text = "Дней в работе";
-            }
+            BoxInteract.LeaveWithBox(daysInOperationBox, "Дней в работе");
         }
     }
 }

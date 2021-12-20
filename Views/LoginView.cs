@@ -13,6 +13,9 @@ namespace MKP_ver1
 {
     public partial class LoginView : Form
     {
+        // Подключение базы данных
+        SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
+
         public static string userRole;
 
         public LoginView()
@@ -20,70 +23,29 @@ namespace MKP_ver1
             InitializeComponent();
         }
 
-        private void SignUpButton_Click(object sender, EventArgs e)
+        private void OnSignUpButton_Click(object sender, EventArgs e)
         {
             SignUpView signUp = new SignUpView();
             signUp.Show();
             this.Hide();
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
+        private void OnCloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void UsernameBox_Enter(object sender, EventArgs e)
+        private void OnLoginButton_Click(object sender, EventArgs e)
         {
-            if (usernameBox.Text == "Имя пользователя")
-            {
-                usernameBox.Clear();
-            }
-        }
-
-        private void UsernameBox_Leave(object sender, EventArgs e)
-        {
-            if (usernameBox.Text == string.Empty)
-            {
-                usernameBox.Text = "Имя пользователя";
-            }
-        }
-
-        private void PasswordBox_Enter(object sender, EventArgs e)
-        {
-            if (passwordBox.Text == "Password")
-            {
-                passwordBox.Clear();
-            }
-        }
-
-        private void PasswordBox_Leave(object sender, EventArgs e)
-        {
-            if (passwordBox.Text == string.Empty)
-            {
-                passwordBox.Text = "Password";
-            }
-        }
-
-        // Представляем подключение к локальной базе данных
-        SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
-
-        private void LoginButton_Click(object sender, EventArgs e)
-        {
-            MessageBoxButtons btn = MessageBoxButtons.OK;
-            MessageBoxIcon ico = MessageBoxIcon.Information;
-            string caption = "";
-
             if (string.IsNullOrEmpty(usernameBox.Text) || usernameBox.Text == "Имя пользователя")
             {
-                MessageBox.Show("Введите логин.", caption, btn, ico);
-                usernameBox.Select();
+                BoxInteract.ShowBox(usernameBox, "Введите логин.");
                 return;
             }
 
             if (string.IsNullOrEmpty(passwordBox.Text) || passwordBox.Text == "Password")
             {
-                MessageBox.Show("Введите пароль.", caption, btn, ico);
-                passwordBox.Select();
+                BoxInteract.ShowBox(passwordBox, "Введите пароль.");
                 return;
             }
 
@@ -103,6 +65,8 @@ namespace MKP_ver1
 
                     // Заполняем dataTable соответсвие строк в источник данных 
                     dataAdapter.Fill(dataTable);
+
+                    var asrt = dataTable.Rows.Count;
 
                     // Проверка, где результатом будет кол-во строк соответствующих введенным данным
                     if (dataTable.Rows.Count == 1)
@@ -146,13 +110,29 @@ namespace MKP_ver1
             }
             catch (Exception ex)
             {
+                conn.Close();
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                conn.Open();
-                conn.Close();
-            }
+        }
+
+        private void usernameBox_Enter(object sender, EventArgs e)
+        {
+            BoxInteract.EnterInBox(usernameBox, "Имя пользователя");
+        }
+
+        private void usernameBox_Leave(object sender, EventArgs e)
+        {
+            BoxInteract.LeaveWithBox(usernameBox, "Имя пользователя");
+        }
+
+        private void passwordBox_Enter(object sender, EventArgs e)
+        {
+            BoxInteract.EnterInBox(passwordBox, "Password");
+        }
+
+        private void passwordBox_Leave(object sender, EventArgs e)
+        {
+            BoxInteract.LeaveWithBox(passwordBox, "Password");
         }
     }
 }

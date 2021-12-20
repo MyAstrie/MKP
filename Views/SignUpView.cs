@@ -13,10 +13,17 @@ namespace MKP_ver1
 {
     public partial class SignUpView : Form
     {
+        // Подключение базы данных
+        SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
+
         public SignUpView()
         {
             InitializeComponent();
-            if(LoginView.userRole == "admin")
+        }
+
+        private void SignUpView_Load(object sender, EventArgs e)
+        {
+            if (LoginView.userRole == "admin")
             {
                 registerLabel.Text = "Добавить менеджера";
                 onSignUpButton.Text = "Добавить";
@@ -27,12 +34,12 @@ namespace MKP_ver1
             }
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
+        private void OnCloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void ReturnButton_Click(object sender, EventArgs e)
+        private void OnReturnButton_Click(object sender, EventArgs e)
         {
             if(LoginView.userRole == "admin")
             {
@@ -47,56 +54,43 @@ namespace MKP_ver1
                 this.Hide();
             }
         }
-
-        SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
-
+        
         private void OnSignUpButton_Click(object sender, EventArgs e)
         {
-            // Параметры для окна ошибок при незаполненных полях
-            MessageBoxButtons btn = MessageBoxButtons.OK;
-            MessageBoxIcon ico = MessageBoxIcon.Information;
-            string caption = "";
-
             if (string.IsNullOrEmpty(nameBox.Text) || nameBox.Text == "Имя")
             {
-                MessageBox.Show("Введите имя.", caption, btn, ico);
-                nameBox.Select();
+                BoxInteract.ShowBox(nameBox, "Введите имя.");
                 return;
             }
 
             if (string.IsNullOrEmpty(lastNameBox.Text) || lastNameBox.Text == "Фамилия")
             {
-                MessageBox.Show("Введите фамилию.", caption, btn, ico);
-                lastNameBox.Select();
+                BoxInteract.ShowBox(lastNameBox, "Введите фамилию.");
                 return;
             }
 
             if (string.IsNullOrEmpty(loginBox.Text) || loginBox.Text == "Логин")
             {
-                MessageBox.Show("Введите логин.", caption, btn, ico);
-                loginBox.Select();
+                BoxInteract.ShowBox(loginBox, "Введите логин.");
                 return;
             }
 
             if (string.IsNullOrEmpty(passBox.Text) || passBox.Text == "Пароль")
             {
-                MessageBox.Show("Введите пароль.", caption, btn, ico);
-                passBox.Select();
+                BoxInteract.ShowBox(passBox, "Введите пароль.");
                 return;
             }
 
             if (repeatPassBox.Text != passBox.Text)
             {
-                MessageBox.Show("Пароли не совпадают.", caption, btn, ico);
-                repeatPassBox.Select();
+                BoxInteract.ShowBox(repeatPassBox, "Пароли не совпадают.");
                 return;
             }
 
             if (string.IsNullOrEmpty(whoUserContext.Text) ||
                 whoUserContext.Text != "Работник" && whoUserContext.Text != "Админ")
             {
-                MessageBox.Show("Выберите кем вы являетесь.", caption, btn, ico);
-                whoUserContext.Select();
+                BoxInteract.ShowBox("Выберите кем вы являетесь.");
                 return;
             }
 
@@ -105,7 +99,7 @@ namespace MKP_ver1
                 conn.Open();
                 // Работа с таблицей пользователей расположенной в базе данных
                 SqlCommand command = new SqlCommand("INSERT INTO UserTable(UserName, UserLastName, UserLogin, UserPass, UserProfession) VALUES(@UName, @ULastName, @ULogin, @UPass, @UProf)", conn);
-
+                
                 // Получаем данные Логина учитывая все строки в UserTbl
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT COUNT(*) FROM UserTable WHERE UserLogin ='" + loginBox.Text + "'", conn);
 
@@ -117,8 +111,7 @@ namespace MKP_ver1
                 // Проверка, где результатом будет кол-во строк соответствующих введенным данным
                 if (dataTable.Rows[0][0].ToString() == "1")
                 {
-                    MessageBox.Show("Логин Занят.", caption, btn, ico);
-                    loginBox.Select();
+                    BoxInteract.ShowBox(loginBox, "Логин Занят.");
                     return;
                 }
 
@@ -143,19 +136,15 @@ namespace MKP_ver1
                 }
                 else
                 {
-                    LoginView login = new LoginView();
-                    login.Show();
+                    LoginView loginView = new LoginView();
+                    loginView.Show();
                     this.Hide();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Open();
                 conn.Close();
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -169,124 +158,79 @@ namespace MKP_ver1
             whoUserContext.Text = "";
         }
 
-        private void UsernameBox_Enter(object sender, EventArgs e)
+        private void nameBox_Enter(object sender, EventArgs e)
         {
-            if(nameBox.Text == "Имя")
-            {
-                nameBox.Clear();
-            }
+            BoxInteract.EnterInBox(nameBox, "Имя");
         }
 
-        private void UsernameBox_Leave(object sender, EventArgs e)
+        private void nameBox_Leave(object sender, EventArgs e)
         {
-            if (nameBox.Text == string.Empty)
-            {
-                nameBox.Text = "Имя";
-            }
+            BoxInteract.LeaveWithBox(nameBox, "Имя");
         }
 
-        private void LastName_Enter(object sender, EventArgs e)
+        private void lastNameBox_Enter(object sender, EventArgs e)
         {
-            if (lastNameBox.Text == "Фамилия")
-            {
-                lastNameBox.Clear();
-            }
+            BoxInteract.EnterInBox(lastNameBox, "Фамилия");
         }
 
-        private void LastName_Leave(object sender, EventArgs e)
+        private void lastNameBox_Leave(object sender, EventArgs e)
         {
-            if (lastNameBox.Text == string.Empty)
-            {
-                lastNameBox.Text = "Фамилия";
-            }
+            BoxInteract.LeaveWithBox(lastNameBox, "Фамилия");
         }
 
-        private void LoginTxt_Enter(object sender, EventArgs e)
+        private void loginBox_Enter(object sender, EventArgs e)
         {
-            if(loginBox.Text == "Логин")
-            {
-                loginBox.Clear();
-            }
+            BoxInteract.EnterInBox(loginBox, "Логин");
         }
 
-        private void LoginTxt_Leave(object sender, EventArgs e)
+        private void loginBox_Leave(object sender, EventArgs e)
         {
-            if(loginBox.Text == string.Empty)
-            {
-                loginBox.Text = "Логин";
-            }
+            BoxInteract.LeaveWithBox(loginBox, "Логин");
         }
 
-        private void PassTxt_Enter(object sender, EventArgs e)
+        private void passBox_Enter(object sender, EventArgs e)
         {
-            if (passBox.Text == "Пароль")
-            {
-                passBox.Clear();
-            }
+            BoxInteract.EnterInBox(passBox, "Пароль");
         }
 
-        private void PassTxt_Leave(object sender, EventArgs e)
+        private void passBox_Leave(object sender, EventArgs e)
         {
-            if(passBox.Text == string.Empty)
-            {
-                passBox.Text = "Пароль";
-            }
+            BoxInteract.LeaveWithBox(passBox, "Пароль");
         }
 
-        private void RepeatPassTxt_Enter(object sender, EventArgs e)
+        private void repeatPassBox_Enter(object sender, EventArgs e)
         {
-            if (repeatPassBox.Text == "Повторите пароль")
-            {
-                repeatPassBox.Clear();
-            }
+            BoxInteract.EnterInBox(repeatPassBox, "Повторите пароль");
         }
 
-        private void RepeatPassTxt_Leave(object sender, EventArgs e)
+        private void repeatPassBox_Leave(object sender, EventArgs e)
         {
-            if(repeatPassBox.Text == string.Empty)
-            {
-                repeatPassBox.Text = "Повторите пароль";
-            }    
+            BoxInteract.LeaveWithBox(repeatPassBox, "Повторите пароль");
         }
 
         private void UsernameBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.Handled=(e.KeyChar == (char)Keys.Space))
-            {
-                MessageBox.Show("Пробелы не разрешены");
-            }
+            BoxInteract.ShowForbiddenSymbols(e);
         }
 
         private void LastName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.Handled = (e.KeyChar == (char)Keys.Space))
-            {
-                MessageBox.Show("Пробелы не разрешены");
-            }
+            BoxInteract.ShowForbiddenSymbols(e);
         }
 
         private void LoginTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.Handled = (e.KeyChar == (char)Keys.Space))
-            {
-                MessageBox.Show("Пробелы не разрешены");
-            }
+            BoxInteract.ShowForbiddenSymbols(e);
         }
 
         private void PassTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.Handled = (e.KeyChar == (char)Keys.Space))
-            {
-                MessageBox.Show("Пробелы не разрешены");
-            }
+            BoxInteract.ShowForbiddenSymbols(e);
         }
 
         private void RepeatPassTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.Handled = (e.KeyChar == (char)Keys.Space))
-            {
-                MessageBox.Show("Пробелы не разрешены");
-            }
+            BoxInteract.ShowForbiddenSymbols(e);
         }
     }
 }

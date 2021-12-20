@@ -109,7 +109,7 @@ namespace MKP_ver1
             this.closeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closeButton.TabIndex = 24;
             this.closeButton.TabStop = false;
-            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.closeButton.Click += new System.EventHandler(this.OnCloseButton_Click);
             // 
             // signUpButton
             // 
@@ -127,7 +127,7 @@ namespace MKP_ver1
             this.signUpButton.TabIndex = 8;
             this.signUpButton.Text = "Создать Аккаунт";
             this.signUpButton.UseVisualStyleBackColor = false;
-            this.signUpButton.Click += new System.EventHandler(this.SignUpButton_Click);
+            this.signUpButton.Click += new System.EventHandler(this.OnSignUpButton_Click);
             // 
             // loginButton
             // 
@@ -145,7 +145,7 @@ namespace MKP_ver1
             this.loginButton.TabIndex = 7;
             this.loginButton.Text = "Войти";
             this.loginButton.UseVisualStyleBackColor = false;
-            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            this.loginButton.Click += new System.EventHandler(this.OnLoginButton_Click);
             // 
             // panel3
             // 
@@ -181,8 +181,8 @@ namespace MKP_ver1
             this.passwordBox.Tag = "";
             this.passwordBox.Text = "Password";
             this.passwordBox.UseSystemPasswordChar = true;
-            this.passwordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
-            this.passwordBox.Leave += new System.EventHandler(this.PasswordBox_Leave);
+            this.passwordBox.Enter += new System.EventHandler(this.passwordBox_Enter);
+            this.passwordBox.Leave += new System.EventHandler(this.passwordBox_Leave);
             // 
             // panel2
             // 
@@ -217,8 +217,8 @@ namespace MKP_ver1
             this.usernameBox.TabIndex = 1;
             this.usernameBox.Tag = "";
             this.usernameBox.Text = "Имя пользователя";
-            this.usernameBox.Enter += new System.EventHandler(this.UsernameBox_Enter);
-            this.usernameBox.Leave += new System.EventHandler(this.UsernameBox_Leave);
+            this.usernameBox.Enter += new System.EventHandler(this.usernameBox_Enter);
+            this.usernameBox.Leave += new System.EventHandler(this.usernameBox_Leave);
             // 
             // loginLabel
             // 

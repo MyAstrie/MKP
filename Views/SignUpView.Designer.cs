@@ -77,9 +77,9 @@ namespace MKP_ver1
             this.nameBox.ForeColor = System.Drawing.Color.White;
             this.nameBox.Name = "nameBox";
             this.nameBox.Tag = "";
-            this.nameBox.Enter += new System.EventHandler(this.UsernameBox_Enter);
+            this.nameBox.Enter += new System.EventHandler(this.nameBox_Enter);
             this.nameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UsernameBox_KeyPress);
-            this.nameBox.Leave += new System.EventHandler(this.UsernameBox_Leave);
+            this.nameBox.Leave += new System.EventHandler(this.nameBox_Leave);
             // 
             // panel1
             // 
@@ -96,9 +96,9 @@ namespace MKP_ver1
             this.loginBox.ForeColor = System.Drawing.Color.White;
             this.loginBox.Name = "loginBox";
             this.loginBox.Tag = "";
-            this.loginBox.Enter += new System.EventHandler(this.LoginTxt_Enter);
+            this.loginBox.Enter += new System.EventHandler(this.loginBox_Enter);
             this.loginBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LoginTxt_KeyPress);
-            this.loginBox.Leave += new System.EventHandler(this.LoginTxt_Leave);
+            this.loginBox.Leave += new System.EventHandler(this.loginBox_Leave);
             // 
             // panel3
             // 
@@ -115,9 +115,9 @@ namespace MKP_ver1
             this.passBox.ForeColor = System.Drawing.Color.White;
             this.passBox.Name = "passBox";
             this.passBox.Tag = "";
-            this.passBox.Enter += new System.EventHandler(this.PassTxt_Enter);
+            this.passBox.Enter += new System.EventHandler(this.passBox_Enter);
             this.passBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PassTxt_KeyPress);
-            this.passBox.Leave += new System.EventHandler(this.PassTxt_Leave);
+            this.passBox.Leave += new System.EventHandler(this.passBox_Leave);
             // 
             // panel5
             // 
@@ -134,9 +134,9 @@ namespace MKP_ver1
             this.repeatPassBox.ForeColor = System.Drawing.Color.White;
             this.repeatPassBox.Name = "repeatPassBox";
             this.repeatPassBox.Tag = "";
-            this.repeatPassBox.Enter += new System.EventHandler(this.RepeatPassTxt_Enter);
+            this.repeatPassBox.Enter += new System.EventHandler(this.repeatPassBox_Enter);
             this.repeatPassBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RepeatPassTxt_KeyPress);
-            this.repeatPassBox.Leave += new System.EventHandler(this.RepeatPassTxt_Leave);
+            this.repeatPassBox.Leave += new System.EventHandler(this.repeatPassBox_Leave);
             // 
             // onSignUpButton
             // 
@@ -162,7 +162,7 @@ namespace MKP_ver1
             this.returnButton.ForeColor = System.Drawing.Color.White;
             this.returnButton.Name = "returnButton";
             this.returnButton.UseVisualStyleBackColor = false;
-            this.returnButton.Click += new System.EventHandler(this.ReturnButton_Click);
+            this.returnButton.Click += new System.EventHandler(this.OnReturnButton_Click);
             // 
             // panel4
             // 
@@ -179,9 +179,9 @@ namespace MKP_ver1
             this.lastNameBox.ForeColor = System.Drawing.Color.White;
             this.lastNameBox.Name = "lastNameBox";
             this.lastNameBox.Tag = "";
-            this.lastNameBox.Enter += new System.EventHandler(this.LastName_Enter);
+            this.lastNameBox.Enter += new System.EventHandler(this.lastNameBox_Enter);
             this.lastNameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LastName_KeyPress);
-            this.lastNameBox.Leave += new System.EventHandler(this.LastName_Leave);
+            this.lastNameBox.Leave += new System.EventHandler(this.lastNameBox_Leave);
             // 
             // whoUserContext
             // 
@@ -204,7 +204,7 @@ namespace MKP_ver1
             resources.ApplyResources(this.closeButton, "closeButton");
             this.closeButton.Name = "closeButton";
             this.closeButton.TabStop = false;
-            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.closeButton.Click += new System.EventHandler(this.OnCloseButton_Click);
             // 
             // pictureBox1
             // 
@@ -237,6 +237,7 @@ namespace MKP_ver1
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SignUpView";
+            this.Load += new System.EventHandler(this.SignUpView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

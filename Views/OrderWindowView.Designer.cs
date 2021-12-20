@@ -285,7 +285,7 @@ namespace MKP_ver1
             this.createOrderButton.TabIndex = 45;
             this.createOrderButton.Text = "Создать заказ";
             this.createOrderButton.UseVisualStyleBackColor = false;
-            this.createOrderButton.Click += new System.EventHandler(this.createOrderButton_Click);
+            this.createOrderButton.Click += new System.EventHandler(this.OnCreateOrderButton_Click);
             // 
             // returnButton
             // 
@@ -304,7 +304,7 @@ namespace MKP_ver1
             this.returnButton.TabIndex = 46;
             this.returnButton.Text = "Вернуться назад";
             this.returnButton.UseVisualStyleBackColor = false;
-            this.returnButton.Click += new System.EventHandler(this.ReturnButton_Click);
+            this.returnButton.Click += new System.EventHandler(this.OnReturnButton_Click);
             // 
             // deviceTypeBox
             // 
@@ -334,7 +334,7 @@ namespace MKP_ver1
             this.closeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closeButton.TabIndex = 25;
             this.closeButton.TabStop = false;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            this.closeButton.Click += new System.EventHandler(this.OnCloseButton_Click);
             // 
             // createYearDatePicker
             // 
