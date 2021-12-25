@@ -11,13 +11,22 @@ using System.Data.SqlClient;
 
 namespace MKP_ver1
 {
+    /// <summary>
+    /// Класс для работы с окном авторизации
+    /// </summary>
     public partial class LoginView : Form
     {
         // Подключение базы данных
         SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
 
+        /// <summary>
+        /// Определение имени пользователя
+        /// </summary>
         public static string userRole;
 
+        /// <summary>
+        /// Инициализация окна при переходе на него
+        /// </summary>
         public LoginView()
         {
             InitializeComponent();
@@ -58,8 +67,8 @@ namespace MKP_ver1
                 if (adminCheck.Checked == true)
                 {
                     // Получаем данные Админа и Пароля учитывая все строки в UserTable
-                    dataAdapter = new SqlDataAdapter("SELECT * FROM UserTable WHERE UserName='" + usernameBox.Text +
-                                                                    "'AND UserPass='" + passwordBox.Text +
+                    dataAdapter = new SqlDataAdapter("SELECT * FROM UserTable WHERE UserLogin=N'" + usernameBox.Text +
+                                                                    "'AND UserPass=N'" + passwordBox.Text +
                                                                     "'AND UserProfession = N'Админ'", conn);
                     DataTable dataTable = new DataTable();
 
@@ -85,8 +94,8 @@ namespace MKP_ver1
                 else
                 {
                     // Получаем данные Админа и Пароля учитывая все строки в UserTable
-                    dataAdapter = new SqlDataAdapter("SELECT * FROM UserTable WHERE UserName = '" + usernameBox.Text +
-                                                                    "'AND UserPass='" + passwordBox.Text +
+                    dataAdapter = new SqlDataAdapter("SELECT * FROM UserTable WHERE UserLogin =N'" + usernameBox.Text +
+                                                                    "'AND UserPass=N'" + passwordBox.Text +
                                                                     "'AND UserProfession =  N'Работник'", conn);
                     DataTable dataTable = new DataTable();
 
@@ -115,22 +124,22 @@ namespace MKP_ver1
             }
         }
 
-        private void usernameBox_Enter(object sender, EventArgs e)
+        private void UsernameBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(usernameBox, "Имя пользователя");
         }
 
-        private void usernameBox_Leave(object sender, EventArgs e)
+        private void UsernameBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(usernameBox, "Имя пользователя");
         }
 
-        private void passwordBox_Enter(object sender, EventArgs e)
+        private void PasswordBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(passwordBox, "Password");
         }
 
-        private void passwordBox_Leave(object sender, EventArgs e)
+        private void PasswordBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(passwordBox, "Password");
         }

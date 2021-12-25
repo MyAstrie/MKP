@@ -11,6 +11,9 @@ using System.Data.SqlClient;
 
 namespace MKP_ver1
 {
+    /// <summary>
+    /// Класс для работы с главным окном
+    /// </summary>
     public partial class MainWindowView : Form
     {
         // Подключение базы данных
@@ -18,6 +21,9 @@ namespace MKP_ver1
 
         private int _key = 0;
 
+        /// <summary>
+        /// Инициализация окна при переходе на него
+        /// </summary>
         public MainWindowView()
         {
             InitializeComponent();
@@ -54,7 +60,6 @@ namespace MKP_ver1
                 conn.Open();
                 string query = "SELECT * FROM UserTable";
                 SqlDataAdapter sda = new SqlDataAdapter(query,conn);
-                SqlCommandBuilder builder = new SqlCommandBuilder(sda);
                 var dataSet = new DataSet(); 
                 sda.Fill(dataSet);
                 dataPrinter.DataSource = dataSet.Tables[0];
@@ -65,7 +70,6 @@ namespace MKP_ver1
                 conn.Open();
                 string query = "SELECT * FROM OrderTable";
                 SqlDataAdapter sda = new SqlDataAdapter(query, conn);
-                SqlCommandBuilder builder = new SqlCommandBuilder(sda);
                 var dataSet = new DataSet();
                 sda.Fill(dataSet);
                 dataPrinter.DataSource = dataSet.Tables[0];
@@ -96,6 +100,7 @@ namespace MKP_ver1
 
         private void OnBackButton_Click(object sender, EventArgs e)
         {
+            LoginView.userRole = "";
             LoginView login = new LoginView();
             login.Show();
             this.Hide();
@@ -155,7 +160,7 @@ namespace MKP_ver1
             }
         }
 
-        private void dataPrinter_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataPrinter_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             idBox.Text = dataPrinter.Rows[e.RowIndex].Cells[0].Value.ToString();
             try
@@ -168,7 +173,7 @@ namespace MKP_ver1
             }
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             if (LoginView.userRole == "admin")
             {
@@ -200,12 +205,12 @@ namespace MKP_ver1
             }
         }
 
-        private void searchBox_Enter(object sender, EventArgs e)
+        private void SearchBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(searchBox, "Поиск по имени");
         }
 
-        private void searchBox_Leave(object sender, EventArgs e)
+        private void SearchBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(searchBox, "Поиск по имени");
         }

@@ -70,8 +70,8 @@ namespace MKP_ver1
             this.nameBox.TabIndex = 26;
             this.nameBox.Tag = "";
             this.nameBox.Text = "Имя";
-            this.nameBox.Enter += new System.EventHandler(this.nameBox_Enter);
-            this.nameBox.Leave += new System.EventHandler(this.nameBox_Leave);
+            this.nameBox.Enter += new System.EventHandler(this.NameBox_Enter);
+            this.nameBox.Leave += new System.EventHandler(this.NameBox_Leave);
             // 
             // createOrderTxt
             // 
@@ -101,8 +101,8 @@ namespace MKP_ver1
             this.lastNameBox.TabIndex = 28;
             this.lastNameBox.Tag = "";
             this.lastNameBox.Text = "Фамилия";
-            this.lastNameBox.Enter += new System.EventHandler(this.lastNameBox_Enter);
-            this.lastNameBox.Leave += new System.EventHandler(this.lastNameBox_Leave);
+            this.lastNameBox.Enter += new System.EventHandler(this.LastNameBox_Enter);
+            this.lastNameBox.Leave += new System.EventHandler(this.LastNameBox_Leave);
             // 
             // companyBox
             // 
@@ -119,8 +119,8 @@ namespace MKP_ver1
             this.companyBox.TabIndex = 29;
             this.companyBox.Tag = "";
             this.companyBox.Text = "Компания";
-            this.companyBox.Enter += new System.EventHandler(this.companyBox_Enter);
-            this.companyBox.Leave += new System.EventHandler(this.companyBox_Leave);
+            this.companyBox.Enter += new System.EventHandler(this.CompanyBox_Enter);
+            this.companyBox.Leave += new System.EventHandler(this.CompanyBox_Leave);
             // 
             // deviceBox
             // 
@@ -137,8 +137,8 @@ namespace MKP_ver1
             this.deviceBox.TabIndex = 30;
             this.deviceBox.Tag = "";
             this.deviceBox.Text = "Оборудование";
-            this.deviceBox.Enter += new System.EventHandler(this.deviceBox_Enter);
-            this.deviceBox.Leave += new System.EventHandler(this.deviceBox_Leave);
+            this.deviceBox.Enter += new System.EventHandler(this.DeviceBox_Enter);
+            this.deviceBox.Leave += new System.EventHandler(this.DeviceBox_Leave);
             // 
             // countryOfOriginBox
             // 
@@ -155,8 +155,8 @@ namespace MKP_ver1
             this.countryOfOriginBox.TabIndex = 33;
             this.countryOfOriginBox.Tag = "";
             this.countryOfOriginBox.Text = "Страна производитель";
-            this.countryOfOriginBox.Enter += new System.EventHandler(this.countryOfOriginBox_Enter);
-            this.countryOfOriginBox.Leave += new System.EventHandler(this.countryOfOriginBox_Leave);
+            this.countryOfOriginBox.Enter += new System.EventHandler(this.CountryOfOriginBox_Enter);
+            this.countryOfOriginBox.Leave += new System.EventHandler(this.CountryOfOriginBox_Leave);
             // 
             // remontTypeLabel
             // 
@@ -182,7 +182,7 @@ namespace MKP_ver1
             this.deviceTypeContext.Name = "deviceTypeContext";
             this.deviceTypeContext.Size = new System.Drawing.Size(223, 24);
             this.deviceTypeContext.TabIndex = 34;
-            this.deviceTypeContext.TextChanged += new System.EventHandler(this.deviceTypeContext_TextChanged);
+            this.deviceTypeContext.TextChanged += new System.EventHandler(this.DeviceTypeContext_TextChanged);
             // 
             // timesInRepairBox
             // 
@@ -199,8 +199,8 @@ namespace MKP_ver1
             this.timesInRepairBox.TabIndex = 36;
             this.timesInRepairBox.Tag = "";
             this.timesInRepairBox.Text = "Кол-во раз в ремонте";
-            this.timesInRepairBox.Enter += new System.EventHandler(this.timesInRepairBox_Enter);
-            this.timesInRepairBox.Leave += new System.EventHandler(this.timesInRepairBox_Leave);
+            this.timesInRepairBox.Enter += new System.EventHandler(this.TimesInRepairBox_Enter);
+            this.timesInRepairBox.Leave += new System.EventHandler(this.TimesInRepairBox_Leave);
             // 
             // daysInOperationBox
             // 
@@ -217,9 +217,9 @@ namespace MKP_ver1
             this.daysInOperationBox.TabIndex = 38;
             this.daysInOperationBox.Tag = "";
             this.daysInOperationBox.Text = "Дней в работе";
-            this.daysInOperationBox.TextChanged += new System.EventHandler(this.daysInOperationBox_TextChanged);
-            this.daysInOperationBox.Enter += new System.EventHandler(this.daysInOperationBox_Enter);
-            this.daysInOperationBox.Leave += new System.EventHandler(this.daysInOperationBox_Leave);
+            this.daysInOperationBox.TextChanged += new System.EventHandler(this.DaysInOperationBox_TextChanged);
+            this.daysInOperationBox.Enter += new System.EventHandler(this.DaysInOperationBox_Enter);
+            this.daysInOperationBox.Leave += new System.EventHandler(this.DaysInOperationBox_Leave);
             // 
             // endDateTxt
             // 
@@ -241,7 +241,7 @@ namespace MKP_ver1
             this.startDatePicker.Size = new System.Drawing.Size(223, 22);
             this.startDatePicker.TabIndex = 41;
             this.startDatePicker.Value = new System.DateTime(2021, 12, 17, 0, 0, 0, 0);
-            this.startDatePicker.ValueChanged += new System.EventHandler(this.startDatePicker_ValueChanged);
+            this.startDatePicker.ValueChanged += new System.EventHandler(this.StartDatePicker_ValueChanged);
             // 
             // endDateLabel
             // 
@@ -252,9 +252,8 @@ namespace MKP_ver1
             this.endDateLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.endDateLabel.Location = new System.Drawing.Point(909, 320);
             this.endDateLabel.Name = "endDateLabel";
-            this.endDateLabel.Size = new System.Drawing.Size(43, 29);
+            this.endDateLabel.Size = new System.Drawing.Size(0, 29);
             this.endDateLabel.TabIndex = 42;
-            this.endDateLabel.Text = "Да";
             // 
             // startDateTxt
             // 
@@ -321,8 +320,8 @@ namespace MKP_ver1
             this.deviceTypeBox.TabIndex = 31;
             this.deviceTypeBox.Tag = "";
             this.deviceTypeBox.Text = "Тип оборудования";
-            this.deviceTypeBox.Enter += new System.EventHandler(this.deviceTypeBox_Enter);
-            this.deviceTypeBox.Leave += new System.EventHandler(this.deviceTypeBox_Leave);
+            this.deviceTypeBox.Enter += new System.EventHandler(this.DeviceTypeBox_Enter);
+            this.deviceTypeBox.Leave += new System.EventHandler(this.DeviceTypeBox_Leave);
             // 
             // closeButton
             // 
@@ -379,9 +378,8 @@ namespace MKP_ver1
             this.costLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.costLabel.Location = new System.Drawing.Point(909, 384);
             this.costLabel.Name = "costLabel";
-            this.costLabel.Size = new System.Drawing.Size(130, 29);
+            this.costLabel.Size = new System.Drawing.Size(0, 29);
             this.costLabel.TabIndex = 43;
-            this.costLabel.Text = "Я являюсь";
             // 
             // OrderWindowView
             // 

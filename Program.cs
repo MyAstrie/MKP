@@ -7,6 +7,9 @@ using System.Data.SqlClient;
 
 namespace MKP_ver1
 {
+    /// <summary>
+    /// Стандартный класс от куда начинается программа
+    /// </summary>
     internal static class Program
     {
         /// <summary>

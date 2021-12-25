@@ -181,8 +181,8 @@ namespace MKP_ver1
             this.passwordBox.Tag = "";
             this.passwordBox.Text = "Password";
             this.passwordBox.UseSystemPasswordChar = true;
-            this.passwordBox.Enter += new System.EventHandler(this.passwordBox_Enter);
-            this.passwordBox.Leave += new System.EventHandler(this.passwordBox_Leave);
+            this.passwordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
+            this.passwordBox.Leave += new System.EventHandler(this.PasswordBox_Leave);
             // 
             // panel2
             // 
@@ -217,8 +217,8 @@ namespace MKP_ver1
             this.usernameBox.TabIndex = 1;
             this.usernameBox.Tag = "";
             this.usernameBox.Text = "Имя пользователя";
-            this.usernameBox.Enter += new System.EventHandler(this.usernameBox_Enter);
-            this.usernameBox.Leave += new System.EventHandler(this.usernameBox_Leave);
+            this.usernameBox.Enter += new System.EventHandler(this.UsernameBox_Enter);
+            this.usernameBox.Leave += new System.EventHandler(this.UsernameBox_Leave);
             // 
             // loginLabel
             // 

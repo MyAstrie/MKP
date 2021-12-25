@@ -11,11 +11,17 @@ using System.Data.SqlClient;
 
 namespace MKP_ver1
 {
+    /// <summary>
+    /// Класс для работы с окном регистрации
+    /// </summary>
     public partial class SignUpView : Form
     {
         // Подключение базы данных
         SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
 
+        /// <summary>
+        /// Инициализация окна при переходе на него
+        /// </summary>
         public SignUpView()
         {
             InitializeComponent();
@@ -98,7 +104,11 @@ namespace MKP_ver1
             {
                 conn.Open();
                 // Работа с таблицей пользователей расположенной в базе данных
-                SqlCommand command = new SqlCommand("INSERT INTO UserTable(UserName, UserLastName, UserLogin, UserPass, UserProfession) VALUES(@UName, @ULastName, @ULogin, @UPass, @UProf)", conn);
+                SqlCommand command = new SqlCommand("INSERT INTO UserTable(UserName, " +
+                                                    "UserLastName, UserLogin, " +
+                                                    "UserPass, UserProfession) " +
+                                                    "VALUES(@UName, @ULastName, " +
+                                                    "@ULogin, @UPass, @UProf)", conn);
                 
                 // Получаем данные Логина учитывая все строки в UserTbl
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT COUNT(*) FROM UserTable WHERE UserLogin ='" + loginBox.Text + "'", conn);
@@ -158,52 +168,52 @@ namespace MKP_ver1
             whoUserContext.Text = "";
         }
 
-        private void nameBox_Enter(object sender, EventArgs e)
+        private void NameBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(nameBox, "Имя");
         }
 
-        private void nameBox_Leave(object sender, EventArgs e)
+        private void NameBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(nameBox, "Имя");
         }
 
-        private void lastNameBox_Enter(object sender, EventArgs e)
+        private void LastNameBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(lastNameBox, "Фамилия");
         }
 
-        private void lastNameBox_Leave(object sender, EventArgs e)
+        private void LastNameBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(lastNameBox, "Фамилия");
         }
 
-        private void loginBox_Enter(object sender, EventArgs e)
+        private void LoginBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(loginBox, "Логин");
         }
 
-        private void loginBox_Leave(object sender, EventArgs e)
+        private void LoginBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(loginBox, "Логин");
         }
 
-        private void passBox_Enter(object sender, EventArgs e)
+        private void PassBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(passBox, "Пароль");
         }
 
-        private void passBox_Leave(object sender, EventArgs e)
+        private void PassBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(passBox, "Пароль");
         }
 
-        private void repeatPassBox_Enter(object sender, EventArgs e)
+        private void RepeatPassBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(repeatPassBox, "Повторите пароль");
         }
 
-        private void repeatPassBox_Leave(object sender, EventArgs e)
+        private void RepeatPassBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(repeatPassBox, "Повторите пароль");
         }

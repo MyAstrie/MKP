@@ -11,11 +11,17 @@ using System.Data.SqlClient;
 
 namespace MKP_ver1
 {
+    /// <summary>
+    /// Класс для работы с окном добалвения заказа
+    /// </summary>
     public partial class OrderWindowView : Form
     {
         // Подключение базы данных
         SqlConnection conn = new SqlConnection(@"Data Source=maintenance-of-machine-serv.database.windows.net;Initial Catalog=MaintenanceOfMachineToolsDb;Persist Security Info=True;User ID=Ywop;Password=1Q2w3e4r");
 
+        /// <summary>
+        /// Инициализация окна при переходе на него
+        /// </summary>
         public OrderWindowView()
         {
             InitializeComponent();
@@ -182,7 +188,7 @@ namespace MKP_ver1
             daysInOperationBox.Text = "";
         }
 
-        private void daysInOperationBox_TextChanged(object sender, EventArgs e)
+        private void DaysInOperationBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -195,7 +201,7 @@ namespace MKP_ver1
             }
         }
 
-        private void startDatePicker_ValueChanged(object sender, EventArgs e)
+        private void StartDatePicker_ValueChanged(object sender, EventArgs e)
         {
             try
             {
@@ -208,7 +214,7 @@ namespace MKP_ver1
             }
         }
 
-        private void deviceTypeContext_TextChanged(object sender, EventArgs e)
+        private void DeviceTypeContext_TextChanged(object sender, EventArgs e)
         {
             if(deviceTypeContext.Text == "Малый")
             {
@@ -226,82 +232,82 @@ namespace MKP_ver1
             }
         }
 
-        private void nameBox_Enter(object sender, EventArgs e)
+        private void NameBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(nameBox, "Имя");
         }
 
-        private void nameBox_Leave(object sender, EventArgs e)
+        private void NameBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(nameBox, "Имя");
         }
 
-        private void lastNameBox_Enter(object sender, EventArgs e)
+        private void LastNameBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(lastNameBox, "Фамилия");
         }
 
-        private void lastNameBox_Leave(object sender, EventArgs e)
+        private void LastNameBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(lastNameBox, "Фамилия");
         }
 
-        private void companyBox_Enter(object sender, EventArgs e)
+        private void CompanyBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(companyBox, "Компания");
         }
 
-        private void companyBox_Leave(object sender, EventArgs e)
+        private void CompanyBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(companyBox, "Компания");
         }
 
-        private void deviceBox_Enter(object sender, EventArgs e)
+        private void DeviceBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(deviceBox, "Оборудование");
         }
 
-        private void deviceBox_Leave(object sender, EventArgs e)
+        private void DeviceBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(deviceBox, "Оборудование");
         }
 
-        private void deviceTypeBox_Enter(object sender, EventArgs e)
+        private void DeviceTypeBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(deviceTypeBox, "Тип оборудования");
         }
 
-        private void deviceTypeBox_Leave(object sender, EventArgs e)
+        private void DeviceTypeBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(deviceTypeBox, "Тип оборудования");
         }
 
-        private void countryOfOriginBox_Enter(object sender, EventArgs e)
+        private void CountryOfOriginBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(countryOfOriginBox, "Страна производитель");
         }
 
-        private void countryOfOriginBox_Leave(object sender, EventArgs e)
+        private void CountryOfOriginBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(countryOfOriginBox, "Страна производитель");
         }
 
-        private void timesInRepairBox_Enter(object sender, EventArgs e)
+        private void TimesInRepairBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(timesInRepairBox, "Кол-во раз в ремонте");
         }
 
-        private void timesInRepairBox_Leave(object sender, EventArgs e)
+        private void TimesInRepairBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(timesInRepairBox, "Кол-во раз в ремонте");
         }
 
-        private void daysInOperationBox_Enter(object sender, EventArgs e)
+        private void DaysInOperationBox_Enter(object sender, EventArgs e)
         {
             BoxInteract.EnterInBox(daysInOperationBox, "Дней в работе");
         }
 
-        private void daysInOperationBox_Leave(object sender, EventArgs e)
+        private void DaysInOperationBox_Leave(object sender, EventArgs e)
         {
             BoxInteract.LeaveWithBox(daysInOperationBox, "Дней в работе");
         }

@@ -80,7 +80,7 @@
             this.dataPrinter.RowTemplate.Height = 24;
             this.dataPrinter.Size = new System.Drawing.Size(1129, 494);
             this.dataPrinter.TabIndex = 29;
-            this.dataPrinter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataPrinter_CellContentClick);
+            this.dataPrinter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataPrinter_CellContentClick);
             // 
             // deleteButton
             // 
@@ -131,8 +131,8 @@
             this.searchBox.TabIndex = 32;
             this.searchBox.Tag = "";
             this.searchBox.Text = "Поиск по имени";
-            this.searchBox.Enter += new System.EventHandler(this.searchBox_Enter);
-            this.searchBox.Leave += new System.EventHandler(this.searchBox_Leave);
+            this.searchBox.Enter += new System.EventHandler(this.SearchBox_Enter);
+            this.searchBox.Leave += new System.EventHandler(this.SearchBox_Leave);
             // 
             // seaechButton
             // 
@@ -143,7 +143,7 @@
             this.seaechButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.seaechButton.TabIndex = 34;
             this.seaechButton.TabStop = false;
-            this.seaechButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.seaechButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // backButton
             // 
